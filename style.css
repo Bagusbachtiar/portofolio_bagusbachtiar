@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-slate-50 antialiased overflow-x-hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  ::selection {
+    @apply bg-accent-purple/30 text-white;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface/50 backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-500;
+  }
+
+  .glow-purple {
+    @apply relative;
+  }
+
+  .glow-purple::after {
+    content: '';
+    @apply absolute -inset-2 bg-accent-purple/20 blur-2xl rounded-full opacity-0 transition-opacity duration-500;
+    z-index: -1;
+  }
+
+  .glow-purple:hover::after {
+    @apply opacity-100;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(112, 0, 255, 0.3);
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-accent-blue hover:text-white transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-all duration-300 transform hover:scale-105;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit_scrollbar {
+  width: 8px;
+}
+
+::-webkit_scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit_scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* Background Gradient Blobs */
+.bg-blob {
+  @apply absolute rounded-full blur-[120px] opacity-20 pointer-events-none;
+  z-index: -1;
+}
+
+/* ===== MODAL STYLES ===== */
+.modal-overlay {
+  display: none;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-overlay.active .modal-backdrop {
+  animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+.modal-overlay.active .modal-content {
+  animation: modalSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-overlay.closing .modal-backdrop {
+  animation: modalFadeOut 0.25s ease-in forwards;
+}
+
+.modal-overlay.closing .modal-content {
+  animation: modalSlideOut 0.25s ease-in forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalSlideOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+}
+
+/* Modal Scrollbar */
+.modal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Preview Button Glow */
+.preview-btn {
+  position: relative;
+}
+
+.preview-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(112, 0, 255, 0.2));
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.preview-btn:hover::after {
+  opacity: 1;
+}

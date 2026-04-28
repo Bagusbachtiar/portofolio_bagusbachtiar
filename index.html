@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagus Bachtiar | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: "#030303",
+                        surface: "#0a0a0c",
+                        accent: {
+                            blue: "#00f2fe",
+                            purple: "#7000ff",
+                            indigo: "#4f46e5",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ["Outfit", "Inter", "sans-serif"],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-background text-slate-100 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-8 flex justify-between items-center bg-background/50 backdrop-blur-md">
+        <a href="#" class="text-2xl font-bold tracking-tighter hover:text-accent-blue transition-colors">BB.</a>
+        <div class="hidden md:flex gap-8 items-center text-sm font-medium tracking-wide text-slate-400">
+            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+            <a href="#stack" class="hover:text-white transition-colors">Tech Stack</a>
+            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero"
+        class="min-h-screen flex flex-col justify-center items-center px-6 pt-20 text-center relative overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(112,0,255,0.15),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(0,242,254,0.1),transparent_40%)]">
+        <div class="relative z-10 space-y-6">
+            <div id="hero-name-container" class="overflow-hidden pb-4 -mb-4">
+                <h1 id="hero-name" class="text-6xl md:text-8xl font-bold tracking-tight text-glow py-2 leading-tight">
+                    Bagus Bachtiar
+                </h1>
+            </div>
+            <p id="hero-tagline" class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light">
+                PHP Developer building scalable systems, IoT solutions, and automation tools.
+            </p>
+            <p id="hero-subtext" class="text-slate-500 max-w-xl mx-auto">
+                Focused on Laravel, backend architecture, and real-world applications.
+            </p>
+            <div id="hero-buttons" class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <button onclick="downloadResume()" class="btn-secondary inline-flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Resume
+                </button>
+                <a href="#contact" class="btn-secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 flex flex-col items-center max-w-4xl mx-auto">
+        <div class="space-y-12 text-center reveal">
+            <h2 class="text-sm uppercase tracking-[0.3em] text-accent-blue font-bold">About Me</h2>
+            <p class="text-2xl md:text-3xl leading-relaxed font-light text-slate-300">
+                I am a PHP developer specializing in Laravel and backend systems, with experience building real-world
+                applications including <span
+                    class="text-white font-normal underline decoration-accent-purple/50 underline-offset-4">IoT-based
+                    solutions</span>, automation workflows, and business management systems. I focus on solving
+                practical problems through efficient and scalable software.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32 px-6 max-w-6xl mx-auto">
+        <div class="mb-20 space-y-4">
+            <h2 class="text-sm uppercase tracking-[0.3em] text-accent-blue font-bold">My Projects</h2>
+            <h3 class="text-4xl font-bold">Featured Projects</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card glass-card p-8 group flex flex-col h-full reveal">
+                <div class="flex-grow space-y-6">
+                    <div class="carousel relative h-48 rounded-xl overflow-hidden mb-6 bg-accent-purple/10"
+                        data-carousel>
+                        <div class="carousel-track flex transition-transform duration-500 ease-out h-full">
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/ar-1.jpg" alt="AR Sandbox Overview" class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/ar-2.jpg" alt="AR Sandbox Sensor Setup"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/ar-3.jpg" alt="AR Sandbox Therapy Session"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/60 z-10"
+                            onclick="carouselPrev(this)">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button
+                            class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/60 z-10"
+                            onclick="carouselNext(this)">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                            <button class="w-1.5 h-1.5 rounded-full bg-white transition-all duration-300"
+                                onclick="carouselGoTo(this, 0)"></button>
+                            <button class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                onclick="carouselGoTo(this, 1)"></button>
+                            <button class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                onclick="carouselGoTo(this, 2)"></button>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold group-hover:text-accent-blue transition-colors">AR Sandbox for Motor
+                        Skill Therapy</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Interactive AR sandbox supporting soft motor skill therapy. Uses Xbox Kinect sensor and
+                        projector for real-time visual feedback.
+                    </p>
+                </div>
+                <div class="pt-8 flex items-center justify-between">
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">Linux</span>
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">IoT</span>
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">Kinect</span>
+                    </div>
+                    <button onclick="openProjectModal('ar-sandbox')"
+                        class="preview-btn flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-accent-blue border border-accent-blue/30 rounded-full hover:bg-accent-blue/10 hover:border-accent-blue/60 transition-all duration-300 group/preview">
+                        <svg class="w-3.5 h-3.5 group-hover/preview:scale-110 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        Preview
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card glass-card p-8 group flex flex-col h-full reveal">
+                <div class="flex-grow space-y-6">
+                    <div class="carousel relative h-48 rounded-xl overflow-hidden mb-6 bg-white/5" data-carousel>
+                        <div class="carousel-track flex transition-transform duration-500 ease-out h-full">
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/jidoka-1.jpg" alt="Inventory System"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent pointer-events-none">
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold group-hover:text-accent-blue transition-colors">Jidoka.id –
+                        Construction System</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Backend management system for construction housing companies. Features unit listing, customer
+                        management, and payment tracking.
+                    </p>
+                </div>
+                <div class="pt-8 flex items-center justify-between">
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">Laravel</span>
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">MySQL</span>
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">Backend</span>
+                    </div>
+                    <button onclick="openProjectModal('jidoka')"
+                        class="preview-btn flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-accent-blue border border-accent-blue/30 rounded-full hover:bg-accent-blue/10 hover:border-accent-blue/60 transition-all duration-300 group/preview">
+                        <svg class="w-3.5 h-3.5 group-hover/preview:scale-110 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        Preview
+                    </button>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card glass-card p-8 group flex flex-col h-full reveal">
+                <div class="flex-grow space-y-6">
+                    <div class="carousel relative h-48 rounded-xl overflow-hidden mb-6 bg-accent-blue/10" data-carousel>
+                        <div class="carousel-track flex transition-transform duration-500 ease-out h-full">
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/toko-1.jpg" alt="Jidoka.id Dashboard"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="carousel-slide w-full h-full flex-shrink-0">
+                                <img src="assets/toko-2.jpg" alt="Jidoka.id Mobile" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent pointer-events-none">
+                        </div>
+                        <button
+                            class="carousel-prev absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/60 z-10"
+                            onclick="carouselPrev(this)">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button
+                            class="carousel-next absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/60 z-10"
+                            onclick="carouselNext(this)">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <div class="carousel-dots absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+                            <button class="w-1.5 h-1.5 rounded-full bg-white transition-all duration-300"
+                                onclick="carouselGoTo(this, 0)"></button>
+                            <button class="w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"
+                                onclick="carouselGoTo(this, 1)"></button>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold group-hover:text-accent-blue transition-colors">Sales & Inventory
+                        Management</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Comprehensive shop operations management, including sales transaction tracking, product
+                        categorization, and supplier inventory.
+                    </p>
+                </div>
+                <div class="pt-8 flex items-center justify-between">
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">PHP</span>
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">Laravel</span>
+                        <span
+                            class="px-3 py-1 bg-white/5 text-[10px] uppercase rounded-full border border-white/10">Inventory</span>
+                    </div>
+                    <button onclick="openProjectModal('toko')"
+                        class="preview-btn flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-accent-blue border border-accent-blue/30 rounded-full hover:bg-accent-blue/10 hover:border-accent-blue/60 transition-all duration-300 group/preview">
+                        <svg class="w-3.5 h-3.5 group-hover/preview:scale-110 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        Preview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="stack" class="py-32 px-6 bg-surface/30">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
+            <div class="max-w-md reveal">
+                <h2 class="text-sm uppercase tracking-[0.3em] text-accent-blue font-bold mb-4">Ecosystem</h2>
+                <h3 class="text-4xl font-bold mb-6">Tech Stack</h3>
+                <p class="text-slate-400 leading-relaxed">
+                    Technologies I use to build real-world applications.
+                </p>
+            </div>
+
+            <div class="flex-grow grid grid-cols-2 sm:grid-cols-3 gap-6 w-full md:w-auto reveal">
+                <div
+                    class="glass-card p-6 flex flex-col items-center gap-3 hover:border-accent-blue/50 transition-colors">
+                    <span class="w-8 h-8 flex items-center justify-center text-accent-blue"><i
+                            data-lucide="code-2"></i></span>
+                    <span class="text-sm font-semibold">PHP</span>
+                </div>
+                <div
+                    class="glass-card p-6 flex flex-col items-center gap-3 hover:border-accent-purple/50 transition-colors">
+                    <span class="w-8 h-8 flex items-center justify-center text-accent-purple"><i
+                            data-lucide="layers"></i></span>
+                    <span class="text-sm font-semibold">Laravel</span>
+                </div>
+                <div
+                    class="glass-card p-6 flex flex-col items-center gap-3 hover:border-accent-blue/50 transition-colors">
+                    <span class="w-8 h-8 flex items-center justify-center text-accent-blue"><i
+                            data-lucide="database"></i></span>
+                    <span class="text-sm font-semibold">MySQL</span>
+                </div>
+                <div
+                    class="glass-card p-6 flex flex-col items-center gap-3 hover:border-accent-purple/50 transition-colors">
+                    <span class="w-8 h-8 flex items-center justify-center text-accent-purple"><i
+                            data-lucide="cpu"></i></span>
+                    <span class="text-sm font-semibold">IoT Systems</span>
+                </div>
+                <div
+                    class="glass-card p-6 flex flex-col items-center gap-3 hover:border-accent-blue/50 transition-colors">
+                    <span class="w-8 h-8 flex items-center justify-center text-accent-blue"><i
+                            data-lucide="terminal"></i></span>
+                    <span class="text-sm font-semibold">Linux</span>
+                </div>
+                <div
+                    class="glass-card p-6 flex flex-col items-center gap-3 hover:border-accent-purple/50 transition-colors">
+                    <span class="w-8 h-8 flex items-center justify-center text-accent-purple"><i
+                            data-lucide="box"></i></span>
+                    <span class="text-sm font-semibold">Automation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 border-t border-white/5 bg-surface/10">
+        <div class="max-w-5xl mx-auto text-center space-y-16 reveal">
+            <div class="space-y-4">
+                <h2 class="text-sm uppercase tracking-[0.3em] text-accent-blue font-bold">My Contact</h2>
+                <h3 class="text-4xl md:text-6xl font-bold tracking-tight">Let's build something useful together.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+                <!-- Gmail -->
+                <div
+                    class="glass-card p-8 group hover:border-red-500/50 transition-all duration-500 relative overflow-hidden flex flex-col items-center">
+                    <div
+                        class="absolute -inset-1 bg-red-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <a href="mailto:bagusbachtiar50@gmail.com" target="_blank" rel="noopener noreferrer"
+                        class="relative z-10 w-full">
+                        <div
+                            class="relative w-12 h-12 mx-auto bg-red-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(239,68,68,0.4)]">
+                            <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.5v15c0 .85-.65 1.5-1.5 1.5H21V7.387l-9 6.463-9-6.463V21H1.5C.65 21 0 20.35 0 19.5v-15c0-.425.162-.8.431-1.068C.7 3.16 1.075 3 1.5 3H2.25L12 10l9.75-7H22.5c.425 0 .8.162 1.069.432.269.268.431.643.431 1.068z" />
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="relative z-10 text-center">
+                        <p class="text-[10px] uppercase tracking-widest text-slate-500 mb-2">Gmail</p>
+                        <div class="flex items-center gap-2 justify-center">
+                            <p id="email-text" class="text-sm font-medium text-slate-300">bagusbachtiar50@gmail.com</p>
+                            <button onclick="copyEmail()"
+                                class="p-1.5 hover:bg-white/10 rounded-md transition-colors group/copy"
+                                title="Copy to clipboard">
+                                <i data-lucide="copy"
+                                    class="w-3.5 h-3.5 text-slate-500 group-hover/copy:text-white transition-colors"></i>
+                            </button>
+                        </div>
+                        <span id="copy-feedback"
+                            class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-accent-blue opacity-0 pointer-events-none">Copied!</span>
+                    </div>
+                </div>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/bagus-bachtiar-92988b236/?skipRedirect=true" target="_blank"
+                    rel="noopener noreferrer"
+                    class="glass-card p-8 group hover:border-blue-500/50 transition-all duration-500 relative overflow-hidden">
+                    <div
+                        class="absolute -inset-1 bg-blue-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="relative w-12 h-12 mx-auto bg-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                        <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.238 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mb-2">LinkedIn</p>
+                    <p class="text-sm font-medium text-slate-300">Bagus Bachtiar</p>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/6281249138361" target="_blank" rel="noopener noreferrer"
+                    class="glass-card p-8 group hover:border-green-500/50 transition-all duration-500 relative overflow-hidden">
+                    <div
+                        class="absolute -inset-1 bg-green-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div
+                        class="relative w-12 h-12 mx-auto bg-green-500 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(34,197,94,0.4)]">
+                        <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-4.821 4.754a8.117 8.117 0 01-3.848-.971l-.276-.164-2.859.751.764-2.788-.18-.287a8.104 8.104 0 01-1.246-4.324c0-4.477 3.644-8.121 8.124-8.121 2.169 0 4.208.845 5.741 2.379a8.077 8.077 0 012.373 5.743c.001 4.478-3.644 8.122-8.124 8.122M12 2C6.477 2 2 6.477 2 12c0 1.891.528 3.659 1.442 5.167l-1.442 5.253 5.38-.141C8.887 23.23 10.395 23.75 12 23.75c5.523 0 10-4.477 10-10S17.523 2 12 2z" />
+                        </svg>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-widest text-slate-500 mb-2">WhatsApp</p>
+                    <p class="text-sm font-medium text-slate-300">+62 812 4913 8361</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal-overlay fixed inset-0 z-[100] hidden items-center justify-center p-4 md:p-8">
+        <!-- Backdrop -->
+        <div class="modal-backdrop absolute inset-0 bg-black/80 backdrop-blur-md" onclick="closeProjectModal()"></div>
+
+        <!-- Modal Content -->
+        <div
+            class="modal-content relative w-full max-w-5xl max-h-[90vh] bg-surface/95 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(112,0,255,0.15)]">
+            <!-- Close Button -->
+            <button onclick="closeProjectModal()"
+                class="absolute top-4 right-4 z-20 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:rotate-90 group">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <!-- Scrollable Inner Content -->
+            <div class="overflow-y-auto max-h-[90vh] modal-scroll">
+                <!-- Full-Size Image Carousel -->
+                <div class="modal-carousel relative w-full aspect-video bg-black" data-carousel>
+                    <div class="carousel-track flex transition-transform duration-500 ease-out h-full"
+                        id="modal-carousel-track">
+                        <!-- Slides injected by JS -->
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <button
+                        class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/70 transition-all duration-300 hover:scale-110 z-10"
+                        onclick="modalCarouselPrev()">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button
+                        class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/70 transition-all duration-300 hover:scale-110 z-10"
+                        onclick="modalCarouselNext()">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <!-- Slide Counter -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="modal-carousel-dots">
+                        <!-- Dots injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Project Details -->
+                <div class="p-8 md:p-12 space-y-8">
+                    <!-- Title & Tags -->
+                    <div class="space-y-4">
+                        <h3 id="modal-title" class="text-3xl md:text-4xl font-bold tracking-tight"></h3>
+                        <div id="modal-tags" class="flex flex-wrap gap-2">
+                            <!-- Tags injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+                    <!-- Role Section -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-accent-purple/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent-purple" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">My Role</h4>
+                        </div>
+                        <p id="modal-role" class="text-slate-300 leading-relaxed text-sm md:text-base"></p>
+                    </div>
+
+                    <!-- Description Section -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-accent-blue/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent-blue" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Project Details</h4>
+                        </div>
+                        <p id="modal-description" class="text-slate-300 leading-relaxed text-sm md:text-base"></p>
+                    </div>
+
+                    <!-- Key Contributions -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Key Contributions</h4>
+                        </div>
+                        <ul id="modal-contributions" class="space-y-3">
+                            <!-- Contributions injected by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 text-center border-t border-white/5">
+        <p class="text-slate-600 text-xs tracking-widest uppercase">&copy; Bagus Bachtiar Portofolio.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
