@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seagull Fish Bar — Bloxwich</title>
+<link rel="icon" type="image/png" href="images/Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f7f4ef;
+  --bg2:#edeae4;
+  --navy:#0d1e36;
+  --text:#1a1814;
+  --dim:#6b6560;
+  --rust:#c4622d;
+  --border:#d8d4cc;
+  --font:'Inter',system-ui,sans-serif;
+}
+
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:15px;line-height:1.5;overflow-x:clip}
+
+/* HEADER */
+header{
+  background:linear-gradient(rgba(7,16,35,.45),rgba(7,16,35,.75)),url('images/Screenshot 2026-05-31 211928.png') center/cover no-repeat;
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  padding:1.5rem 1.5rem 2.5rem;
+  border-bottom:3px solid var(--rust);
+  text-align:center;
+}
+.header-top{display:flex;flex-direction:column;align-items:center;gap:.8rem}
+.header-logo{width:110px;height:110px;object-fit:contain;border-radius:50%;background:rgba(255,255,255,.08);padding:6px}
+header h1{font-size:clamp(2.2rem,7vw,4rem);font-weight:700;line-height:1;letter-spacing:.01em}
+
+/* HEADER NAV */
+.header-nav{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.hnav-side{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+.hnav-btn{
+  font-family:var(--font);
+  font-size:.85rem;
+  font-weight:600;
+  color:#fff;
+  text-decoration:none;
+  padding:.55rem 0;
+  min-width:110px;
+  text-align:center;
+  border:2px solid rgba(255,255,255,.6);
+  border-radius:6px;
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(8px);
+  transition:all .15s;
+  white-space:nowrap;
+  box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.hnav-btn:hover{background:rgba(255,255,255,.32);border-color:#fff}
+.hnav-order{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+  font-family:var(--font);
+  font-size:.85rem;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  padding:.55rem 0;
+  min-width:110px;
+  border-radius:6px;
+  white-space:nowrap;
+  box-shadow:0 2px 10px rgba(0,0,0,.3);
+  transition:opacity .15s,transform .15s;
+}
+.hnav-order:hover{opacity:.88;transform:translateY(-1px)}
+.hnav-order svg{flex-shrink:0}
+.hnav-je{background:#ff8000}
+.hnav-ue{background:#06c167}
+
+/* REVIEWS SECTION */
+.reviews-inner{width:100%;max-width:1100px}
+.reviews-top{display:flex;align-items:flex-end;gap:1.5rem;margin-bottom:2rem}
+.reviews-heading{font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-.02em}
+.reviews-meta{display:flex;align-items:center;gap:.6rem;margin-bottom:.2rem}
+.reviews-score{font-size:2rem;font-weight:800;color:#fff;line-height:1}
+.reviews-stars{color:#f5a623;font-size:1.1rem;letter-spacing:.05em;line-height:1}
+.reviews-count{font-size:.8rem;color:rgba(255,255,255,.45);margin-top:.15rem}
+.reviews-strip{
+  display:flex;
+  gap:1.2rem;
+  overflow-x:auto;
+  padding-bottom:1rem;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.15) transparent;
+}
+.reviews-strip::-webkit-scrollbar{height:4px}
+.reviews-strip::-webkit-scrollbar-track{background:transparent}
+.reviews-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:2px}
+.rv{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  padding:1.4rem 1.5rem;
+  min-width:calc(50% - .6rem);
+  max-width:calc(50% - .6rem);
+  flex-shrink:0;
+  scroll-snap-align:start;
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+}
+.rv-header{display:flex;align-items:center;gap:.75rem}
+.rv-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rust),#0d1e36);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;font-weight:700;color:#fff;flex-shrink:0;
+}
+.rv-name{font-size:.88rem;font-weight:700;color:#fff;line-height:1.2}
+.rv-date{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.1rem}
+.rv-stars{color:#f5a623;font-size:.85rem;letter-spacing:.05em}
+.rv-text{font-size:.82rem;color:rgba(255,255,255,.75);line-height:1.6}
+.rv-ratings{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.2rem}
+.rv-rating{font-size:.68rem;color:rgba(255,255,255,.4)}
+.rv-rating span{color:rgba(255,255,255,.7);font-weight:600}
+/* Google badge */
+.google-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.3rem .7rem;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.6);margin-left:auto;align-self:flex-start}
+.google-badge svg{flex-shrink:0}
+
+/* INFO SECTION (CTA) */
+.info-grid-cta{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  width:100%;
+  max-width:1100px;
+  text-align:left;
+}
+.info-cta-left h2{font-size:1.6rem;font-weight:700;margin-bottom:1.5rem;color:#fff}
+.info-cta-map{border-radius:12px;overflow:hidden;aspect-ratio:1;height:auto}
+.info-cta-map iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:680px){
+  .info-grid-cta{grid-template-columns:1fr}
+  .info-cta-map{height:240px}
+}
+
+/* FEATURED STRIP */
+.featured-strip{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  gap:1.2rem;
+  overflow-x:auto;
+  padding-bottom:.25rem;
+  scrollbar-width:none;
+}
+.featured-strip::-webkit-scrollbar{display:none}
+.feat-card{
+  flex-shrink:0;
+  width:220px;
+  background:rgba(10,20,40,.65);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:10px;
+  overflow:hidden;
+  transition:transform .15s,box-shadow .15s;
+}
+.feat-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.feat-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+.feat-card-info{padding:.9rem 1rem}
+.feat-card-name{
+  font-size:.85rem;
+  font-weight:600;
+  color:#fff;
+  line-height:1.35;
+  margin-bottom:.4rem;
+}
+.feat-card-price{
+  font-size:1rem;
+  font-weight:700;
+  color:#f0a060;
+}
+@media(max-width:900px){
+  .featured-strip{justify-content:flex-start}
+  .feat-card{width:180px}
+  .feat-card img{height:150px}
+}
+
+/* ORDER BUTTONS */
+.order-btns{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem}
+.order-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.55rem 1.1rem;
+  font-family:var(--font);
+  font-size:.82rem;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:4px;
+  transition:opacity .15s;
+}
+.order-btn:hover{opacity:.85}
+.order-btn-je{background:#ff8000;color:#fff}
+.order-btn-ue{background:#06c167;color:#fff}
+.order-btn svg{width:16px;height:16px;flex-shrink:0}
+
+/* MAIN LAYOUT */
+main{
+  min-height:100vh;
+  padding:3.5rem 4rem 6rem;
+  background:#ece8e0;
+}
+main>.sec-title,
+.tabs,
+.menu-panel{max-width:1240px;margin-left:auto;margin-right:auto}
+
+/* SECTION TITLES */
+.sec-title{
+  font-size:2rem;
+  font-weight:800;
+  color:var(--navy);
+  letter-spacing:-.02em;
+  margin:0 0 1.5rem;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin-bottom:2rem;
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#ece8e0;
+  padding:.9rem 0;
+  margin-top:0;
+  box-shadow:0 4px 16px rgba(0,0,0,.06);
+}
+.tab-btn{
+  font-family:var(--font);
+  font-size:.8rem;
+  font-weight:600;
+  padding:.45rem 1.1rem;
+  border:2px solid var(--border);
+  background:#fff;
+  color:var(--dim);
+  cursor:pointer;
+  border-radius:999px;
+  transition:all .14s;
+  letter-spacing:.01em;
+}
+.tab-btn:hover{border-color:var(--rust);color:var(--rust);background:#fff9f5}
+.tab-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* MENU PANELS */
+.menu-panel{display:none}
+.menu-panel.active{display:block}
+
+.cat-label{
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--rust);
+  margin:2.5rem 0 1.2rem;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+}
+.cat-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.cat-label:first-child{margin-top:0}
+
+.cat-note{
+  font-size:.8rem;
+  color:var(--dim);
+  margin:-0.6rem 0 1.2rem;
+  font-style:italic;
+}
+
+/* MENU GRID */
+.mgrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.4rem;
+  margin-bottom:.5rem;
+}
+.mi{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  transition:transform .2s,box-shadow .2s;
+  display:flex;
+  flex-direction:column;
+}
+.mi:hover{
+  transform:translateY(-6px);
+  box-shadow:0 14px 36px rgba(0,0,0,.13);
+}
+.mi::before{
+  content:'';
+  display:block;
+  height:155px;
+  flex-shrink:0;
+  background:linear-gradient(145deg,#f6c07a 0%,#c4622d 40%,#7a2c10 75%,#0d1e36 100%);
+}
+.mi-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:.5rem;
+  padding:1rem 1.2rem .35rem;
+}
+.mi-name{font-size:.92rem;font-weight:700;color:var(--text);line-height:1.35}
+.mi-price{
+  font-size:1.05rem;
+  font-weight:800;
+  color:var(--rust);
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.mi-desc{font-size:.9rem;color:var(--dim);line-height:1.55;padding:.1rem 1.2rem 1.3rem}
+.pop{
+  display:inline-block;
+  font-size:.6rem;
+  font-weight:700;
+  color:#fff;
+  background:var(--rust);
+  padding:.15rem .45rem;
+  border-radius:3px;
+  vertical-align:middle;
+  margin-left:.35rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+}
+
+/* BOTTOM INFO */
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  margin-top:2.5rem;
+  padding-top:2rem;
+  border-top:2px solid var(--navy);
+}
+.info-block h3{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-bottom:.75rem}
+
+/* HOURS */
+.hours-list{list-style:none}
+.hours-list li{
+  display:flex;
+  justify-content:space-between;
+  padding:.3rem 0;
+  font-size:.85rem;
+  border-bottom:1px solid var(--border);
+  color:var(--dim);
+}
+.hours-list li:last-child{border-bottom:none}
+.hours-list li .day{color:var(--text);font-weight:500}
+.hours-list li.today{background:var(--rust);border-radius:6px;padding:.3rem .7rem;margin:2px -.7rem;border-bottom:none}
+.hours-list li.today .day{color:#fff!important;font-weight:700}
+.hours-list li.today .time{color:rgba(255,255,255,.9)!important}
+
+/* ADDRESS */
+.addr-block p{font-size:.88rem;line-height:1.8;color:var(--dim)}
+.addr-block a{
+  display:inline-block;
+  margin-top:.75rem;
+  font-size:.82rem;
+  font-weight:600;
+  color:var(--rust);
+  text-decoration:none;
+}
+.addr-block a:hover{text-decoration:underline}
+
+/* CTA / INFO SECTION */
+.cta{
+  background:var(--navy);
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4rem 2rem;
+}
+.info-3col{
+  display:grid;
+  grid-template-columns:1.2fr 0.9fr 1.2fr;
+  gap:2.5rem;
+  width:100%;
+  align-items:start;
+}
+.i3-label{
+  font-size:.62rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.4);
+  margin-bottom:.5rem;
+}
+.i3-phone{
+  font-size:clamp(1.1rem,2.5vw,1.6rem);
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  margin-bottom:1.5rem;
+}
+.i3-address{font-size:.82rem;color:rgba(255,255,255,.7);margin-top:.35rem;line-height:1.5}
+.i3-social-link{
+  display:inline-flex;align-items:center;gap:.75rem;
+  font-size:1.1rem;font-weight:600;color:rgba(255,255,255,.85);
+  text-decoration:none;cursor:default;
+}
+a.i3-social-link{cursor:pointer}
+a.i3-social-link:hover{color:#fff}
+.rv-col{
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+  max-height:520px;
+  overflow-y:auto;
+  padding-right:.3rem;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.15) transparent;
+}
+.rv-col::-webkit-scrollbar{width:4px}
+.rv-col::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:2px}
+.rv-col .rv{min-width:0;max-width:100%;width:100%}
+@media(max-width:860px){
+  .info-3col{grid-template-columns:1fr 1fr}
+  .i3-reviews{grid-column:1/-1}
+  .rv-col{max-height:280px;flex-direction:row;overflow-x:auto;overflow-y:visible}
+  .rv-col .rv{min-width:260px;max-width:260px}
+}
+
+/* FOOTER */
+footer{
+  background:var(--navy);
+  color:rgba(255,255,255,.4);
+  text-align:center;
+  padding:1.2rem;
+  font-size:.75rem;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  main{padding:2.5rem 2rem 4rem}
+  .mgrid{grid-template-columns:repeat(2,1fr)}
+  .feat-card{width:180px}
+  .feat-card img{height:150px}
+}
+@media(max-width:600px){
+  /* Header nav */
+  .header-nav{gap:.4rem}
+  .hnav-side{gap:.35rem}
+  .hnav-btn{min-width:0;font-size:.72rem;padding:.45rem .7rem}
+  .hnav-order{min-width:0;font-size:.72rem;padding:.45rem .7rem;gap:.35rem}
+  .hnav-order img{width:16px;height:16px}
+  /* Sticky tabs — horizontal swipe */
+  .tabs{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:.25rem;
+    margin-left:-1rem;
+    margin-right:-1rem;
+    padding-left:1rem;
+    padding-right:1rem;
+  }
+  .tabs::-webkit-scrollbar{display:none}
+  .tab-btn{flex-shrink:0}
+  /* Featured strip */
+  .feat-card{width:150px}
+  .feat-card img{height:125px}
+  .feat-card-name{font-size:.75rem}
+  .feat-card-price{font-size:.85rem}
+}
+@media(max-width:560px){
+  /* Header */
+  header{padding:1.5rem 1rem 1.8rem}
+  header h1{font-size:1.6rem}
+  /* Menu */
+  .sec-title{font-size:1.4rem}
+  main{padding:2rem 1rem 3rem}
+  .mgrid{grid-template-columns:1fr}
+  /* Review cards in strip */
+  .rv{min-width:calc(100% - .6rem);max-width:calc(100% - .6rem)}
+  /* Info section */
+  .cta{padding:2.5rem 1.2rem}
+  .info-3col{grid-template-columns:1fr;gap:2rem}
+  .i3-reviews{grid-column:auto}
+  /* Map — cap height on mobile so it's not a huge square */
+  .info-cta-map{aspect-ratio:auto;height:220px}
+  /* Reviews col back to vertical on mobile */
+  .rv-col{flex-direction:column;overflow-x:hidden;overflow-y:auto;max-height:420px}
+  .rv-col .rv{min-width:0;max-width:100%;width:100%}
+}
+@media(max-width:400px){
+  .hnav-btn{font-size:.65rem;padding:.38rem .5rem}
+  .hnav-order{font-size:.65rem;padding:.38rem .5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="header-nav">
+    <div class="hnav-side">
+      <a class="hnav-btn" href="#menu">Menu</a>
+      <a class="hnav-btn" href="#location">Location</a>
+    </div>
+    <div class="hnav-side">
+      <a class="hnav-order hnav-je" href="https://www.just-eat.co.uk/restaurants-seagull-fish-bar-bloxwich/menu#category_50ae63ee-95cf-4b18-85fa-418f662be25c" target="_blank" rel="noopener">
+        <img src="images/just_eat.png" alt="" aria-hidden="true" style="width:22px;height:22px;object-fit:contain;filter:brightness(0) invert(1)">
+        Just Eat
+      </a>
+      <a class="hnav-order hnav-ue" href="https://www.ubereats.com/gb/store/seagulls-fish-bar-chestnut-rd/oaQVJm0KW8myGJ0JV-g2Ew?diningMode=PICKUP&utm_campaign=CM2508147-search-free-nonbrand-google-pas_e_all_acq_Global&utm_medium=search-free-nonbrand&utm_source=google-pas&rwg_token=AFd1xnGGnW4tIID9OeInInqTAKVC2IOcDjdGl0F45VNeQ5a53T-8Ubc8YeyBKfYXc1Mwju9QH7tQ1SI9A98ZqIz9vj83VeyoHw%3D%3D" target="_blank" rel="noopener">
+        <img src="images/uber_eats.png" alt="" aria-hidden="true" style="width:22px;height:22px;object-fit:contain;border-radius:4px">
+        Uber Eats
+      </a>
+    </div>
+  </nav>
+
+  <div class="header-top">
+    <img class="header-logo" src="images/Logo.png" alt="Seagull Fish Bar logo">
+    <h1>Seagull Fish Bar</h1>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:1.2rem;width:fit-content;max-width:100%;margin:0 auto">
+    <p style="font-size:1.4rem;font-weight:700;color:#fff;letter-spacing:.02em;text-align:left">Featured Items</p>
+  <div class="featured-strip" style="width:fit-content;max-width:100vw">
+    <div class="feat-card">
+      <img src="images/Large Mix Meat and Chips -  Battered Chips.png" alt="Large Mix Meat and Chips">
+      <div class="feat-card-info">
+        <p class="feat-card-name">Large Mix Meat &amp; Chips</p>
+        <p class="feat-card-price">£9.99</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <img src="images/Large Donner Meat and Chips - Battered Chips.png" alt="Large Donner Meat and Chips">
+      <div class="feat-card-info">
+        <p class="feat-card-name">Large Doner Meat &amp; Chips</p>
+        <p class="feat-card-price">£8.99</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <img src="images/Regular Chips - Battered Chips.png" alt="Regular Chips">
+      <div class="feat-card-info">
+        <p class="feat-card-name">Regular Chips</p>
+        <p class="feat-card-price">£3.99</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <img src="images/Large Fish and Chips - Battered Chips.png" alt="Large Fish and Chips">
+      <div class="feat-card-info">
+        <p class="feat-card-name">Large Fish &amp; Chips</p>
+        <p class="feat-card-price">£12.99</p>
+      </div>
+    </div>
+    <div class="feat-card">
+      <img src="images/Small Mixed Meat and Chips - Battered Chips.png" alt="Small Mixed Meat and Chips">
+      <div class="feat-card-info">
+        <p class="feat-card-name">Small Mixed Meat &amp; Chips</p>
+        <p class="feat-card-price">£7.50</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main id="menu">
+  <p class="sec-title">Menu</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="fish" role="tab">Fish &amp; Chips</button>
+    <button class="tab-btn" data-tab="meat" role="tab">Meat &amp; Chips</button>
+    <button class="tab-btn" data-tab="wraps" role="tab">Naan / Pitta / Wrap</button>
+    <button class="tab-btn" data-tab="burgers" role="tab">Burgers</button>
+    <button class="tab-btn" data-tab="chicken" role="tab">SF Chicken</button>
+    <button class="tab-btn" data-tab="pies" role="tab">Pies &amp; Extras</button>
+    <button class="tab-btn" data-tab="specials" role="tab">Specials</button>
+    <button class="tab-btn" data-tab="kids" role="tab">Kids &amp; Drinks</button>
+  </div>
+
+  <!-- FISH & CHIPS -->
+  <div class="menu-panel active" id="tab-fish">
+    <p class="cat-label">Fish &amp; Chips</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Fish &amp; Chips<span class="pop">Best seller</span></span><span class="mi-price">£12.99</span></div>
+        <p class="mi-desc">Cod + battered chips. Free curry, gravy or mushy peas.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mini Fish &amp; Chips</span><span class="mi-price">£7.99</span></div>
+        <p class="mi-desc">Battered fish served with crispy chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Cod</span><span class="mi-price">£8.79</span></div>
+        <p class="mi-desc">Cod fried in high oleic oil. Tender, melt-in-your-mouth.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mini Cod</span><span class="mi-price">£4.99</span></div>
+        <p class="mi-desc">Smaller piece of cod, same quality.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Chips</span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Battered chips cooked in high oleic oil.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Regular Chips</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Our famous battered chips. Salt &amp; vinegar on request.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Cone of Chips</span><span class="mi-price">£2.99</span></div>
+        <p class="mi-desc">Battered chips in a cone.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Scampi</span><span class="mi-price">£5.29</span></div>
+        <p class="mi-desc">Cooked in high oleic oil.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Fish Cake</span><span class="mi-price">£2.99</span></div>
+        <p class="mi-desc">4oz fish cake. High oleic oil, GM free.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Cod Roe</span><span class="mi-price">£2.99</span></div>
+        <p class="mi-desc">Roe cooked in high oleic oil.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Potato Fritter</span><span class="mi-price">£0.99</span></div>
+        <p class="mi-desc">Potato scallop in high oleic oil.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEAT & CHIPS -->
+  <div class="menu-panel" id="tab-meat">
+    <p class="cat-label">Meat &amp; Chips</p>
+    <p class="cat-note">Served with salad and sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Meat &amp; Chips<span class="pop">Popular</span></span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Succulent doner meat with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Tikka &amp; Chips<span class="pop">Popular</span></span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Juicy marinated chicken thigh with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Doner Meat &amp; Chips</span><span class="mi-price">£8.99</span></div>
+        <p class="mi-desc">Larger portion of succulent doner meat with chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Small Mixed Meat &amp; Chips</span><span class="mi-price">£7.50</span></div>
+        <p class="mi-desc">Chicken tikka + doner meat, with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Red Chicken &amp; Chips</span><span class="mi-price">£9.50</span></div>
+        <p class="mi-desc">Large chicken tikka thigh, marinated, with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Mix Meat &amp; Chips</span><span class="mi-price">£9.99</span></div>
+        <p class="mi-desc">Red chicken + doner meat mixed, with battered chips.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">Meat Only</p>
+    <p class="cat-note">Served with salad and sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Meat Only<span class="pop">Popular</span></span><span class="mi-price">£6.50</span></div>
+        <p class="mi-desc">Freshly sliced doner meat with choice of salad and sauces.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Meat Only</span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Tender and juicy chicken breast.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mix Meat Only</span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Doner and chicken tikka mixed, with salad and sauces.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WRAPS / NAAN / PITTA -->
+  <div class="menu-panel" id="tab-wraps">
+    <p class="cat-label">In Naan</p>
+    <p class="cat-note">Served with salad and sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mixed Meat in Naan</span><span class="mi-price">£9.99</span></div>
+        <p class="mi-desc">Tender mixed meats in a soft naan.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Meat in Naan</span><span class="mi-price">£8.99</span></div>
+        <p class="mi-desc">Tender chicken in a soft naan.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Meat in Naan</span><span class="mi-price">£7.99</span></div>
+        <p class="mi-desc">Tender doner meat in a soft naan.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">In Pitta</p>
+    <p class="cat-note">Served with salad and sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Meat in Pitta</span><span class="mi-price">£5.99</span></div>
+        <p class="mi-desc">Tender doner meat in a soft pitta.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Meat in Pitta</span><span class="mi-price">£5.99</span></div>
+        <p class="mi-desc">Tender chicken in a soft pitta.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mixed Meat in Pitta</span><span class="mi-price">£5.99</span></div>
+        <p class="mi-desc">Mixed meats in a pitta bread.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">In a Wrap</p>
+    <p class="cat-note">Served with salad and sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Meat Wrap<span class="pop">Popular</span></span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Tender doner meat in a soft tortilla.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Meat Wrap</span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Tender chicken in a soft tortilla.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mixed Meat Wrap</span><span class="mi-price">£4.99</span></div>
+        <p class="mi-desc">Mixed meats in a tortilla wrap.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BURGERS -->
+  <div class="menu-panel" id="tab-burgers">
+    <p class="cat-label">Burger Specials</p>
+    <p class="cat-note">Comes with can of pop, salad &amp; sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Cheese Burger &amp; Chips<span class="pop">Popular</span></span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Beef patty with melted cheese, battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Burger &amp; Chips</span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Doner meat patty with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Burger &amp; Chips</span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Chicken patty with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Steak Burger &amp; Chips</span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Chicken steak with battered chips.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">Burgers</p>
+    <p class="cat-note">Served with sauce and salad</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Steak Burger<span class="pop">Popular</span></span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Chicken breast topped with a steak patty.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Kebab Burger</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Chicken in a kebab-style patty.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Cheese Burger</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Beef patty with melted cheese.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Double Cheese Burger</span><span class="mi-price">£4.99</span></div>
+        <p class="mi-desc">Double patty, double cheese.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Plain Burger</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Classic beef patty on a bun.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Doner Burger</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Doner meat in a soft bun.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Special Fillet Burger &amp; Chips</span><span class="mi-price">£7.49</span></div>
+        <p class="mi-desc">Crispy fillet burger with golden battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Veggie Supreme Burger</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Veggie burger with fresh vegetables.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SF CHICKEN -->
+  <div class="menu-panel" id="tab-chicken">
+    <p class="cat-label">SF Chicken</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">1 Piece Chicken</span><span class="mi-price">£2.99</span></div>
+        <p class="mi-desc">Juicy, tender big chicken piece.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">1 Piece Chicken &amp; Chips</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Juicy chicken with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">2 Piece Chicken &amp; Chips</span><span class="mi-price">£5.99</span></div>
+        <p class="mi-desc">Tender chicken with crispy battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">3 Piece Chicken &amp; Chips</span><span class="mi-price">£7.99</span></div>
+        <p class="mi-desc">Chicken pieces with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">4 Piece Chicken &amp; Chips</span><span class="mi-price">£9.99</span></div>
+        <p class="mi-desc">4 pieces of chicken with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">2&times; Spicy Wings &amp; Chips</span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Spicy wings with crispy battered chips.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIES & EXTRAS -->
+  <div class="menu-panel" id="tab-pies">
+    <p class="cat-label">Pies</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">All Steak Pie<span class="pop">Popular</span></span><span class="mi-price">£3.89</span></div>
+        <p class="mi-desc">Tender steak in a rich filling.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Steak Kidney Pie</span><span class="mi-price">£3.89</span></div>
+        <p class="mi-desc">Tender steak and kidney.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Mushroom Pie</span><span class="mi-price">£3.89</span></div>
+        <p class="mi-desc">Tender chicken and mushrooms.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Beef Onion Pie</span><span class="mi-price">£3.89</span></div>
+        <p class="mi-desc">Tender beef and onions.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Balti Pie</span><span class="mi-price">£3.89</span></div>
+        <p class="mi-desc">Chicken in a Balti-inspired filling.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Meat &amp; Potato Pie</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Minced beef, diced potatoes and gravy in puff pastry.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chicken Vindaloo Pie</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Chicken, red pepper and onion in extra spicy vindaloo sauce. Puff pastry.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">Pasties</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Beef Onion Pasty<span class="pop">Popular</span></span><span class="mi-price">£2.79</span></div>
+        <p class="mi-desc">Beef and onion in flaky pastry.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Cheese Onion Pasty</span><span class="mi-price">£2.79</span></div>
+        <p class="mi-desc">Cheese and onion in flaky pastry.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">Extras</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">8 Chicken Nuggets</span><span class="mi-price">£4.99</span></div>
+        <p class="mi-desc">Tender chicken nuggets.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Saveloy</span><span class="mi-price">£2.49</span></div>
+        <p class="mi-desc">Classic saveloy sausage.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Plain Sausage</span><span class="mi-price">£2.49</span></div>
+        <p class="mi-desc">Juicy sausage.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Battered Sausage</span><span class="mi-price">£2.49</span></div>
+        <p class="mi-desc">Crispy battered sausage.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Battered Burger</span><span class="mi-price">£2.49</span></div>
+        <p class="mi-desc">Beef patty in crispy batter.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Spring Roll</span><span class="mi-price">£2.49</span></div>
+        <p class="mi-desc">Crispy pastry with vegetables.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chips in Pitta</span><span class="mi-price">£2.99</span></div>
+        <p class="mi-desc">Battered chips in a pitta bread.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Portion of Salad</span><span class="mi-price">£2.99</span></div>
+        <p class="mi-desc">Cucumber, lettuce, tomato, red onion, lemon.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECIALS -->
+  <div class="menu-panel" id="tab-specials">
+    <p class="cat-label">All Day Specials</p>
+    <p class="cat-note">Served with peas, curry or gravy</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Batter Sausage &amp; Chips</span><span class="mi-price">£5.49</span></div>
+        <p class="mi-desc">Battered sausage with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Sausage &amp; Chips Special</span><span class="mi-price">£4.99</span></div>
+        <p class="mi-desc">Large sausage with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Mini Fish &amp; Chips</span><span class="mi-price">£7.99</span></div>
+        <p class="mi-desc">Battered fish with crispy chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Roe &amp; Chips</span><span class="mi-price">£5.49</span></div>
+        <p class="mi-desc">Battered chips with roe.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Fish Cake &amp; Chips</span><span class="mi-price">£5.49</span></div>
+        <p class="mi-desc">Battered fish cake with chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Saveloy &amp; Chips</span><span class="mi-price">£5.49</span></div>
+        <p class="mi-desc">Saveloy with crispy chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Batter Burger &amp; Chips</span><span class="mi-price">£5.49</span></div>
+        <p class="mi-desc">Burger with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Pie &amp; Chips</span><span class="mi-price">£6.99</span></div>
+        <p class="mi-desc">Pie of your choice with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Chips with Sauce</span><span class="mi-price">£3.99</span></div>
+        <p class="mi-desc">Battered chips with a side of sauce.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KIDS & DRINKS -->
+  <div class="menu-panel" id="tab-kids">
+    <p class="cat-label">Kids Specials</p>
+    <p class="cat-note">Comes with carton of orange pop &amp; sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Kids Fish Cake &amp; Chips<span class="pop">Popular</span></span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Fish cake with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Kids 3 Nuggets &amp; Chips</span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Nuggets with battered chips.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Kids Chicken Drumstick &amp; Chips</span><span class="mi-price">£4.49</span></div>
+        <p class="mi-desc">Chicken drumstick with battered chips.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">Drinks</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Can of Pop 330ml<span class="pop">Popular</span></span><span class="mi-price">£1.20</span></div>
+        <p class="mi-desc">Fizzy soft drink.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Bottle of Coke 1.5L</span><span class="mi-price">£3.49</span></div>
+        <p class="mi-desc">Fizzy cola, 1.5L bottle.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Bottle of Tango 1.5L</span><span class="mi-price">£3.49</span></div>
+        <p class="mi-desc">Fruity Tango, 1.5L bottle.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Bottle of Pop 500ml</span><span class="mi-price">£2.49</span></div>
+        <p class="mi-desc">Fizzy drink, 500ml bottle.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Red Bull</span><span class="mi-price">£2.50</span></div>
+        <p class="mi-desc">Energy drink.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Monster Energy</span><span class="mi-price">£2.50</span></div>
+        <p class="mi-desc">Energy drink.</p>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Oasis Citrus Punch</span><span class="mi-price">£2.50</span></div>
+        <p class="mi-desc">Still citrus drink.</p>
+      </div>
+    </div>
+    <p class="cat-label" style="margin-top:2rem">Sauce</p>
+    <div class="mgrid">
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Small Sauce Dip</span><span class="mi-price">£1.29</span></div>
+      </div>
+      <div class="mi">
+        <div class="mi-row"><span class="mi-name">Large Sauce Dip</span><span class="mi-price">£1.99</span></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- INFORMATION SECTION -->
+<div class="cta" id="location">
+  <div class="info-3col">
+
+    <!-- COL 1: MAP -->
+    <div class="i3-map">
+      <p class="i3-label">Location</p>
+      <div class="info-cta-map">
+        <iframe src="https://maps.google.com/maps?q=3+Chestnut+Rd+Bloxwich+Walsall+WS3+1BB&output=embed&z=16" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="i3-label" style="margin-top:.9rem">Address</p>
+      <p class="i3-address">3 Chestnut Road, Bloxwich, Walsall, WS3 1BB</p>
+    </div>
+
+    <!-- COL 2: HOURS -->
+    <div class="i3-hours">
+      <p class="i3-label">Opening Hours</p>
+      <ul class="hours-list" id="hoursList" style="border-top:1px solid rgba(255,255,255,.1)">
+        <li data-day="1"><span class="day" style="color:rgba(255,255,255,.85)">Monday</span><span class="time" style="color:rgba(255,255,255,.55)">12:00 – 10:00 pm</span></li>
+        <li data-day="2"><span class="day" style="color:rgba(255,255,255,.85)">Tuesday</span><span class="time" style="color:rgba(255,255,255,.55)">12:00 – 10:00 pm</span></li>
+        <li data-day="3"><span class="day" style="color:rgba(255,255,255,.85)">Wednesday</span><span class="time" style="color:rgba(255,255,255,.55)">12:00 – 10:00 pm</span></li>
+        <li data-day="4"><span class="day" style="color:rgba(255,255,255,.85)">Thursday</span><span class="time" style="color:rgba(255,255,255,.55)">12:00 – 10:00 pm</span></li>
+        <li data-day="5"><span class="day" style="color:rgba(255,255,255,.85)">Friday</span><span class="time" style="color:rgba(255,255,255,.55)">12:00 – 10:00 pm</span></li>
+        <li data-day="6"><span class="day" style="color:rgba(255,255,255,.85)">Saturday</span><span class="time" style="color:rgba(255,255,255,.55)">12:00 – 10:00 pm</span></li>
+        <li data-day="0"><span class="day" style="color:rgba(255,255,255,.85)">Sunday</span><span class="time" style="color:rgba(255,255,255,.55)">4:00 – 9:30 pm</span></li>
+      </ul>
+
+      <div style="margin-top:1.8rem;display:flex;flex-direction:column;gap:1.1rem;align-items:flex-start;text-align:left">
+        <p class="i3-label" style="margin-bottom:.2rem">Contact &amp; Social</p>
+
+        <a href="tel:+447949639088" class="i3-social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.06 6.06l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          +44 7949 639088
+        </a>
+
+        <a href="https://wa.me/447949639088" class="i3-social-link" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+
+        <span class="i3-social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          @seagullfishbar
+        </span>
+
+        <span class="i3-social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          seagullfishbar
+        </span>
+      </div>
+    </div>
+
+    <!-- COL 3: REVIEWS -->
+    <div class="i3-reviews">
+      <div class="reviews-top" style="margin-bottom:1.2rem">
+        <div>
+          <p class="reviews-heading" style="font-size:1rem">Customer Reviews</p>
+          <div class="reviews-meta" style="margin-top:.35rem">
+            <div class="reviews-score" style="font-size:1.4rem">5.0</div>
+            <div>
+              <div class="reviews-stars" style="font-size:.85rem">★★★★★</div>
+              <div class="reviews-count">Google Reviews</div>
+            </div>
+          </div>
+        </div>
+        <div class="google-badge" style="margin-left:auto;align-self:flex-start">
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </div>
+      </div>
+      <div class="rv-col">
+        <div class="rv">
+          <div class="rv-header"><div class="rv-avatar">M</div><div><div class="rv-name">Mankara Singh</div><div class="rv-date">3 months ago</div></div></div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">I had their new menu Masala Fish and chips — first time and was the best choice for dinner. The fish was much bigger than the regular large. Great texture, very nicely cooked. Add curry sauce and you'll be delighted. Staff was encouraging, service was good, shop was clean.</p>
+          <div class="rv-ratings"><div class="rv-rating">Food <span>5/5</span></div><div class="rv-rating">Service <span>5/5</span></div><div class="rv-rating">Atmosphere <span>5/5</span></div></div>
+        </div>
+        <div class="rv">
+          <div class="rv-header"><div class="rv-avatar">S</div><div><div class="rv-name">Sarah Wood</div><div class="rv-date">3 months ago</div></div></div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">Great service all round and the food was very tasty. The lad with the tattoo was really polite and kind — went out of his way to make sure we were happy, even though he was clearly very busy. Much appreciated.</p>
+          <div class="rv-ratings"><div class="rv-rating">Food <span>5/5</span></div><div class="rv-rating">Service <span>5/5</span></div><div class="rv-rating">Atmosphere <span>5/5</span></div></div>
+        </div>
+        <div class="rv">
+          <div class="rv-header"><div class="rv-avatar">J</div><div><div class="rv-name">Juliet Campbell</div><div class="rv-date">5 months ago</div></div></div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">Friendly team working together. Nice food as a chip shop should be. Fantastic service.</p>
+          <div class="rv-ratings"><div class="rv-rating">Food <span>5/5</span></div><div class="rv-rating">Service <span>5/5</span></div><div class="rv-rating">Atmosphere <span>5/5</span></div></div>
+        </div>
+        <div class="rv">
+          <div class="rv-header"><div class="rv-avatar">C</div><div><div class="rv-name">Connor Edwards</div><div class="rv-date">8 months ago</div></div></div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">Been coming here over 10 years, food is always fresh and tasty. Fair prices. Kira goes above and beyond — her service is always 10/10. Would highly recommend.</p>
+          <div class="rv-ratings"><div class="rv-rating">Food <span>5/5</span></div><div class="rv-rating">Service <span>5/5</span></div><div class="rv-rating">Atmosphere <span>5/5</span></div></div>
+        </div>
+        <div class="rv">
+          <div class="rv-header"><div class="rv-avatar">M</div><div><div class="rv-name">Malik Toussef Akhter</div><div class="rv-date">3 months ago</div></div></div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">Best service and great food. I love the hospitality of the workers — specially Deep and that Indian didi. Loved it.</p>
+          <div class="rv-ratings"><div class="rv-rating">Food <span>5/5</span></div><div class="rv-rating">Service <span>5/5</span></div><div class="rv-rating">Atmosphere <span>5/5</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; Seagull Fish Bar &mdash; 3 Chestnut Rd, Bloxwich, Walsall WS3 1BB
+</footer>
+
+<script>
+(function(){
+  var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var HRS={0:'4:00–9:30 pm',1:'12:00–10:00 pm',2:'12:00–10:00 pm',3:'12:00–10:00 pm',4:'12:00–10:00 pm',5:'12:00–10:00 pm',6:'12:00–10:00 pm'};
+  var d=new Date().getDay();
+
+  // Highlight today in hours list
+  document.querySelectorAll('.hours-list li[data-day]').forEach(function(li){
+    if(parseInt(li.dataset.day)===d) li.classList.add('today');
+  });
+
+  // Clean hash from nav anchor clicks
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var target=document.querySelector(a.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth'});
+        history.replaceState(null,'',window.location.pathname);
+      }
+    });
+  });
+
+  // Tabs
+  var btns=document.querySelectorAll('.tab-btn');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btns.forEach(function(b){b.classList.remove('active')});
+      document.querySelectorAll('.menu-panel').forEach(function(p){p.classList.remove('active')});
+      btn.classList.add('active');
+      var p=document.getElementById('tab-'+btn.dataset.tab);
+      if(p) p.classList.add('active');
+      document.getElementById('menu').scrollIntoView({behavior:'smooth'});
+      history.replaceState(null,'',window.location.pathname);
+    });
+  });
+})();
+</script>
+</body>
+</html>
