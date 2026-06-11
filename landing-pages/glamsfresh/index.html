@@ -1,0 +1,2232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlamsFresh UK – Premium Seafood Boil Restaurant</title>
+  <link rel="icon" type="image/jpeg" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── TOKENS ──────────────────────────────────────── */
+    :root {
+      --black:   #080808;
+      --dark:    #111111;
+      --card:    #161616;
+      --border:  #2a2a2a;
+      --red:     #cc1c1c;
+      --red-hot: #ff2222;
+      --orange:  #f07800;
+      --gold:    #ffc200;
+      --gold-lt: #ffe07a;
+      --cream:   #fff8ee;
+      --white:   #ffffff;
+      --muted:   #888888;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-head:    'Barlow Condensed', sans-serif;
+      --font-body:    'Barlow', sans-serif;
+    }
+
+    /* ── RESET ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── UTILITIES ───────────────────────────────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .section-title span { color: var(--gold); }
+    .divider {
+      width: 64px; height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--orange), var(--gold));
+      border-radius: 2px;
+      margin: 16px 0 24px;
+    }
+    .glow-text {
+      text-shadow: 0 0 30px rgba(255,194,0,.45), 0 0 60px rgba(240,120,0,.2);
+    }
+
+    /* ── NOISE OVERLAY ───────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none;
+      opacity: .022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    /* ════════════════════════════════════════════════════
+       NAV
+    ════════════════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(8,8,8,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 96px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .logo-mark {
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: transparent;
+      flex-shrink: 0;
+      display: block;
+    }
+    .logo-text {
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .logo-text strong {
+      font-family: var(--font-head);
+      font-size: 24px; font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--white);
+      line-height: 1;
+    }
+    .logo-text span {
+      font-family: var(--font-head);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-head);
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-order {
+      display: flex; align-items: center; gap: 8px;
+      background: #06C167;
+      color: var(--white) !important;
+      padding: 8px 18px 8px 10px;
+      border-radius: 10px;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      letter-spacing: 1px;
+      transition: opacity .2s, transform .2s !important;
+      box-shadow: 0 4px 20px rgba(6,193,103,.35);
+    }
+    .nav-order img { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+    .nav-order:hover { opacity: .9 !important; transform: translateY(-1px); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--cream); border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ════════════════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      padding-top: 96px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(240,120,0,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(204,28,28,.1) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 50% 0%, rgba(255,194,0,.06) 0%, transparent 50%),
+        var(--black);
+    }
+    /* decorative geometric rings */
+    .hero-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid;
+      opacity: .06;
+    }
+    .hero-ring-1 {
+      width: 700px; height: 700px;
+      top: 50%; right: -100px;
+      transform: translateY(-50%);
+      border-color: var(--gold);
+    }
+    .hero-ring-2 {
+      width: 500px; height: 500px;
+      top: 50%; right: 30px;
+      transform: translateY(-50%);
+      border-color: var(--orange);
+      opacity: .1;
+    }
+    .hero-ring-3 {
+      width: 300px; height: 300px;
+      top: 50%; right: 160px;
+      transform: translateY(-50%);
+      border-color: var(--red);
+      opacity: .15;
+    }
+    /* animated ember particles */
+    .embers {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .ember {
+      position: absolute;
+      border-radius: 50%;
+      animation: rise linear infinite;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(0) scale(1); opacity: .7; }
+      100% { transform: translateY(-100vh) scale(0); opacity: 0; }
+    }
+    #hero .container {
+      display: flex;
+      align-items: center;
+      min-height: calc(100vh - 96px);
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      max-width: 820px;
+      width: 100%;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(255,194,0,.3);
+      border-radius: 100px;
+      padding: 8px 20px;
+      margin-bottom: 36px;
+      background: rgba(255,194,0,.06);
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(.7); }
+    }
+    .hero-badge span {
+      font-family: var(--font-head);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(4.5rem, 11vw, 9rem);
+      font-weight: 900;
+      line-height: .95;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .hero-headline .fire {
+      display: block;
+      background: linear-gradient(90deg, var(--red-hot), var(--orange), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      filter: drop-shadow(0 0 28px rgba(240,120,0,.55));
+    }
+    .hero-sub {
+      font-family: var(--font-head);
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: 5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .hero-desc {
+      font-size: 18px; font-weight: 300;
+      color: rgba(255,248,238,.65);
+      max-width: 560px;
+      margin-bottom: 0;
+      line-height: 1.9;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 16px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 32px;
+      border-radius: 5px;
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: var(--white);
+      box-shadow: 0 6px 28px rgba(37,211,102,.35);
+    }
+    .btn-primary:hover { box-shadow: 0 10px 36px rgba(37,211,102,.45); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid rgba(255,194,0,.4);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,194,0,.07);
+      border-color: var(--gold);
+    }
+    .btn svg { flex-shrink: 0; }
+
+    /* hero stats strip */
+    .hero-stats {
+      position: relative; z-index: 1;
+      display: flex; gap: 0;
+      margin-top: 72px;
+      border-top: 1px solid var(--border);
+      padding-top: 36px;
+    }
+    .hero-stat {
+      flex: 1;
+      padding: 0 28px;
+      border-right: 1px solid var(--border);
+    }
+    .hero-stat:first-child { padding-left: 0; }
+    .hero-stat:last-child { border-right: none; }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem; font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-family: var(--font-head);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ════════════════════════════════════════════════════
+       FEATURE STRIP
+    ════════════════════════════════════════════════════ */
+    #features {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .features-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .feature-chip {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .feature-chip .icon {
+      font-size: 18px;
+    }
+    .sep {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .4;
+    }
+
+    /* ════════════════════════════════════════════════════
+       MENU
+    ════════════════════════════════════════════════════ */
+    #menu {
+      padding: 100px 0;
+      position: relative;
+    }
+    #menu::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 1px; height: 80px;
+      background: linear-gradient(to bottom, transparent, var(--border));
+    }
+    .menu-header { text-align: center; margin-bottom: 64px; }
+    .menu-header .divider { margin: 16px auto 24px; }
+
+    /* platters grid */
+    .platters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .platter-card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .platter-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+    }
+    /* glow on featured (large) card */
+    .platter-card.featured {
+      border-color: rgba(255,194,0,.3);
+      box-shadow: 0 0 0 1px rgba(255,194,0,.1), 0 8px 40px rgba(240,120,0,.15);
+    }
+    .platter-card.featured::after {
+      content: '';
+      position: absolute; inset: 0;
+      pointer-events: none;
+      border-radius: 16px;
+      background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(255,194,0,.06), transparent);
+    }
+
+    .card-top {
+      position: relative;
+      height: 180px;
+      background: linear-gradient(135deg, #1a1008, #200a00);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card-top-pattern {
+      position: absolute; inset: 0;
+      opacity: .15;
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255,194,0,.3) 0px, rgba(255,194,0,.3) 1px,
+        transparent 1px, transparent 12px
+      );
+    }
+    .card-emoji {
+      font-size: 72px;
+      filter: drop-shadow(0 4px 20px rgba(240,120,0,.6));
+      position: relative; z-index: 1;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    .price-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: linear-gradient(135deg, var(--red), var(--orange));
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.6rem; font-weight: 900;
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(204,28,28,.5);
+      z-index: 2;
+    }
+    .featured-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: var(--black);
+      font-family: var(--font-head);
+      font-size: 9px; font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 24px;
+    }
+    .card-size {
+      font-family: var(--font-head);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .card-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem; font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .items-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      list-style: none;
+    }
+    .items-list li {
+      font-size: 13px; font-weight: 400;
+      color: rgba(255,248,238,.7);
+      display: flex; align-items: flex-start; gap: 6px;
+    }
+    .items-list li::before {
+      content: '›';
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* sides section */
+    .sides-section {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+    }
+    .sides-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 32px;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .sides-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem; font-weight: 900;
+      color: var(--white);
+    }
+    .sides-price-tag {
+      background: linear-gradient(135deg, var(--gold), var(--orange));
+      color: var(--black);
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 900;
+      letter-spacing: 2px;
+      padding: 8px 20px;
+      border-radius: 100px;
+    }
+    .sides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+    .side-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      transition: border-color .2s, transform .2s;
+      cursor: default;
+    }
+    .side-item:hover {
+      border-color: rgba(255,194,0,.4);
+      transform: translateY(-3px);
+    }
+    .side-icon { font-size: 32px; margin-bottom: 8px; }
+    .side-name {
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 700;
+      color: var(--cream);
+      line-height: 1.3;
+    }
+
+    /* delivery strip */
+    .delivery-strip {
+      margin-top: 48px;
+      background: linear-gradient(135deg, rgba(204,28,28,.12), rgba(240,120,0,.08));
+      border: 1px solid rgba(255,194,0,.15);
+      border-radius: 16px;
+      padding: 32px 40px;
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 32px; justify-content: space-between;
+    }
+    .delivery-text h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .delivery-text p {
+      font-size: 14px;
+      color: rgba(255,248,238,.6);
+    }
+    .delivery-platforms {
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .platform-badge {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: var(--font-head);
+      font-size: 14px; font-weight: 800;
+      letter-spacing: 1px;
+      transition: transform .2s;
+    }
+    .platform-badge:hover { transform: scale(1.05); }
+    .uber { background: #000; color: #fff; border: 1px solid #333; }
+    .deliveroo { background: #00ccbc; color: #fff; }
+    .whatsapp-order {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(37,211,102,.3);
+    }
+
+    /* ════════════════════════════════════════════════════
+       INFO
+    ════════════════════════════════════════════════════ */
+    #info {
+      padding: 100px 0;
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    #info::before {
+      content: '';
+      position: absolute; bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(204,28,28,.06), transparent 70%);
+      pointer-events: none;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .info-left {}
+    .info-left .divider { margin-top: 16px; }
+
+    .info-cards {
+      display: flex; flex-direction: column; gap: 16px;
+      margin-top: 32px;
+    }
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+      transition: border-color .2s;
+    }
+    .info-card:hover { border-color: rgba(255,194,0,.3); }
+    .info-card-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255,194,0,.15), rgba(240,120,0,.1));
+      border: 1px solid rgba(255,194,0,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .info-card-content {}
+    .info-card-label {
+      font-family: var(--font-head);
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .info-card-value {
+      font-size: 15px; font-weight: 400;
+      color: var(--cream);
+      line-height: 1.5;
+    }
+    .info-card-value a {
+      color: var(--gold);
+      transition: opacity .2s;
+    }
+    .info-card-value a:hover { opacity: .75; }
+
+    /* hours table */
+    .info-right {}
+    .hours-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .hours-header {
+      background: linear-gradient(135deg, var(--red), var(--orange));
+      padding: 20px 28px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hours-header h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 900;
+      color: var(--white);
+    }
+    .hours-table { width: 100%; }
+    .hours-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row:hover { background: rgba(255,248,238,.03); }
+    .hours-row .open-dot { display: none; }
+    .hours-row.today .open-dot { display: inline-block; }
+    .hours-row.today {
+      background: rgba(255,194,0,.08);
+      border-left: 3px solid var(--gold);
+      padding-left: 25px;
+    }
+    .hours-row.today .hours-day {
+      color: var(--gold);
+      font-size: 16px;
+    }
+    .hours-row.today .hours-time {
+      color: var(--gold);
+      font-size: 15px;
+    }
+    .today-badge {
+      display: inline-block;
+      font-size: 9px; font-weight: 900; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      padding: 2px 7px; border-radius: 100px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .hours-day {
+      font-family: var(--font-head);
+      font-size: 14px; font-weight: 700;
+      color: var(--cream);
+    }
+    .hours-time {
+      font-family: var(--font-head);
+      font-size: 14px; font-weight: 600;
+      color: var(--gold);
+    }
+    .open-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #25d366;
+      margin-right: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* social + order CTA */
+    .social-cta {
+      margin-top: 32px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .ig-btn {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 2px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(253,29,29,.3);
+    }
+    .ig-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(253,29,29,.4);
+    }
+    .wa-btn {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 2px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,.3);
+    }
+    .wa-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(37,211,102,.4);
+    }
+
+    /* ════════════════════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 24px; text-align: center;
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .footer-tagline {
+      font-family: var(--font-head);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 16px;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .footer-tagline .pipe {
+      color: var(--gold); opacity: .4;
+    }
+    .footer-copy {
+      font-size: 13px; color: rgba(255,255,255,.25);
+    }
+    .footer-copy a {
+      color: var(--gold); opacity: .6;
+      transition: opacity .2s;
+    }
+    .footer-copy a:hover { opacity: 1; }
+
+    /* ════════════════════════════════════════════════════
+       FULL MENU
+    ════════════════════════════════════════════════════ */
+    #full-menu {
+      padding: 100px 0;
+      background: var(--black);
+      border-top: 1px solid var(--border);
+    }
+    .full-menu-header { text-align: center; margin-bottom: 48px; }
+    .full-menu-header .divider { margin: 16px auto 0; }
+
+    .tabs-nav {
+      display: flex; gap: 0; overflow-x: auto;
+      scrollbar-width: none;
+      border-bottom: 3px solid var(--border);
+      margin-bottom: 48px;
+      background: var(--dark);
+      border-radius: 12px 12px 0 0;
+      padding: 0 8px;
+      position: sticky;
+      top: 96px;
+      z-index: 50;
+    }
+    .tabs-nav::-webkit-scrollbar { display: none; }
+    .tab-btn {
+      flex-shrink: 0;
+      padding: 20px 30px;
+      border: none; background: transparent;
+      font-family: var(--font-head);
+      font-size: 16px; font-weight: 800;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted); cursor: pointer;
+      transition: color .2s, background .2s;
+      white-space: nowrap;
+      position: relative;
+      bottom: -3px;
+      border-bottom: 3px solid transparent;
+      border-radius: 6px 6px 0 0;
+    }
+    .tab-btn:hover { color: var(--cream); background: rgba(255,255,255,.04); }
+    .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); background: rgba(255,194,0,.05); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .menu-items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+      gap: 20px;
+    }
+    .menu-item-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+    }
+    .menu-item-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,194,0,.25);
+      box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    }
+    .item-img {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+      background: url('food-placeholder.jpg') center/cover no-repeat, linear-gradient(135deg, #1a0e00, #160600);
+      position: relative; overflow: hidden;
+    }
+    .item-img-pattern {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(22,22,22,.6) 0%, rgba(0,0,0,.15) 100%);
+    }
+    .item-emoji { position: relative; z-index: 1; filter: drop-shadow(0 2px 12px rgba(240,120,0,.5)); }
+    .item-body {
+      padding: 16px 18px 18px;
+      display: flex; flex-direction: column; gap: 6px; flex: 1;
+    }
+    .item-top-row {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .item-price {
+      font-family: var(--font-display);
+      font-size: 1.25rem; font-weight: 900;
+      color: var(--gold);
+    }
+    .item-kcal {
+      font-family: var(--font-head);
+      font-size: 10px; font-weight: 600; letter-spacing: 1px;
+      color: var(--muted);
+      padding: 2px 7px; border-radius: 100px;
+      border: 1px solid var(--border);
+    }
+    .item-popular {
+      background: linear-gradient(135deg, var(--red), var(--orange));
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 9px; font-weight: 900; letter-spacing: 1.5px;
+      padding: 2px 8px; border-radius: 100px; text-transform: uppercase;
+    }
+    .item-name {
+      font-family: var(--font-head);
+      font-size: 22px; font-weight: 800;
+      color: var(--white); line-height: 1.25;
+      letter-spacing: .5px;
+    }
+    .item-desc {
+      font-size: 16px; font-weight: 400;
+      color: rgba(255,248,238,.7);
+      line-height: 1.7; flex: 1;
+    }
+
+    /* ════════════════════════════════════════════════════
+       SCROLL ANIMATIONS
+    ════════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
+    .reveal-delay-5 { transition-delay: .5s; }
+
+    /* ════════════════════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .platters-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { flex-direction: column; gap: 24px; }
+      .hero-stat { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 24px; }
+      .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+      .delivery-strip { flex-direction: column; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none !important; }
+      .nav-hamburger { display: none; }
+      .logo-text { display: none; }
+      .nav-order {
+        padding: 6px 10px;
+        font-size: 11px !important;
+        gap: 5px;
+        border-radius: 8px;
+      }
+      .nav-order img { width: 22px; height: 22px; }
+      .nav-order span, .nav-order { letter-spacing: .5px; }
+      .platters-grid { grid-template-columns: 1fr; }
+      .features-inner { gap: 6px; flex-wrap: nowrap; justify-content: space-between; padding: 0 2px; }
+      .sep { display: none; }
+      .feature-chip { font-size: 8px; gap: 3px; flex-direction: column; text-align: center; flex: 1; letter-spacing: .5px; }
+      .feature-chip .icon { font-size: 14px; }
+      #features { padding: 12px 0; }
+      .sides-grid { grid-template-columns: repeat(3, 1fr); }
+      .sides-section { padding: 24px; }
+      .delivery-strip { padding: 24px; }
+      #menu { padding: 72px 0; }
+      #info { padding: 72px 0; }
+    }
+    @media (max-width: 480px) {
+      .sides-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-actions { flex-direction: column; }
+      .btn { justify-content: center; }
+      .delivery-platforms { justify-content: center; }
+      .items-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ════════════════════════════════════════════ -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.png" alt="GlamsFresh UK" class="logo-mark" style="background:transparent;padding:0;object-fit:contain;" />
+        <div class="logo-text">
+          <strong>GlamsFresh</strong>
+          <span>Restaurant · UK</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#full-menu">Menu</a></li>
+        <li><a href="#info">Info</a></li>
+      </ul>
+      <a href="https://www.ubereats.com/gb/store/glamsfresh-resturant-and-grills-delivery-%26-takeout-only/stjYpoTCWJ6gCC64DAFVOg?srsltid=AfmBOoq3_XHp3hZ3Eb0A12fKMEn3a1bgdiNwnzgleeDvoVVTw5SKCE2b"
+         target="_blank" rel="noopener" class="nav-order">
+        <img src="uber_eats.png" alt="Uber Eats" />
+        Order
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-ring hero-ring-1"></div>
+    <div class="hero-ring hero-ring-2"></div>
+    <div class="hero-ring hero-ring-3"></div>
+
+    <!-- ember particles -->
+    <div class="embers" id="embers"></div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <h1 class="hero-headline">
+          Glams
+          <span class="fire">Fresh UK</span>
+        </h1>
+        <p class="hero-sub">Delivery &amp; Takeout Only</p>
+        <p class="hero-desc">
+          An inviting ambience with exceptional culinary delights. Specialising in
+          Intercontinental &amp; Nigerian cuisine, bulk food orders, and outdoor event
+          catering. Proudly awarded <strong style="color:var(--gold);">UK Food Hygiene Rating 5 ⭐</strong>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FEATURE STRIP ══════════════════════════════════ -->
+  <div id="features">
+    <div class="container features-inner">
+      <div class="feature-chip"><span class="icon">🦞</span> Freshly Prepared</div>
+      <div class="sep"></div>
+      <div class="feature-chip"><span class="icon">🔥</span> Bold Authentic Flavours</div>
+      <div class="sep"></div>
+      <div class="feature-chip"><span class="icon">🛵</span> Fast Delivery</div>
+      <div class="sep"></div>
+      <div class="feature-chip"><span class="icon">⭐</span> Premium Quality Ingredients</div>
+    </div>
+  </div>
+
+  <!-- ══ FULL MENU ══════════════════════════════════════ -->
+  <section id="full-menu">
+    <div class="container">
+      <div class="full-menu-header reveal">
+        <p class="section-label">Full Menu</p>
+        <h2 class="section-title">Explore Our <span>Kitchen</span></h2>
+        <div class="divider"></div>
+      </div>
+
+      <!-- tabs nav -->
+      <div class="tabs-nav" id="tabsNav">
+        <button class="tab-btn active" onclick="switchTab('special',this)">⭐ Today's Special</button>
+        <button class="tab-btn" onclick="switchTab('platters',this)">🦞 Seafood Boil Platters</button>
+        <button class="tab-btn" onclick="switchTab('nigerian',this)">🇳🇬 Nigerian</button>
+        <button class="tab-btn" onclick="switchTab('grills',this)">🔥 Grills</button>
+        <button class="tab-btn" onclick="switchTab('chinese',this)">🥢 Chinese</button>
+        <button class="tab-btn" onclick="switchTab('italian',this)">🍝 Italian</button>
+        <button class="tab-btn" onclick="switchTab('shawarma',this)">🌯 Shawarma</button>
+        <button class="tab-btn" onclick="switchTab('chowmein',this)">🍜 Chowmein</button>
+        <button class="tab-btn" onclick="switchTab('healthy',this)">🥗 Healthy</button>
+        <button class="tab-btn" onclick="switchTab('caribbean',this)">🌴 Caribbean</button>
+        <button class="tab-btn" onclick="switchTab('parfait',this)">🍓 Fruit Parfait</button>
+        <button class="tab-btn" onclick="switchTab('others',this)">🍽️ Others</button>
+      </div>
+
+      <!-- SEAFOOD BOIL PLATTERS -->
+      <div class="tab-panel" id="tab-platters">
+        <div class="menu-items-grid" style="margin-bottom:32px;">
+
+          <!-- LARGE -->
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+            <div class="item-body">
+              <div class="item-top-row">
+                <span class="item-price">£65</span>
+                <span class="item-popular">⭐ Best Value</span>
+              </div>
+              <div class="item-name">Glams Large Seafood Boil</div>
+              <div class="item-desc" style="color:rgba(255,248,238,.5);font-size:15px;margin-bottom:10px;">Large Platter</div>
+              <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;margin-top:4px;">
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>3 Large Prawns</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>6 Medium Prawns</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>1 Large Crab</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>1 Large Lobster</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>Crawfish</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Chicken Sausages</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Boiled Eggs</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>4 Potatoes</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Sweet Butter Corn</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- MEDIUM -->
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£45</span></div>
+              <div class="item-name">Glams Medium Seafood Boil</div>
+              <div class="item-desc" style="color:rgba(255,248,238,.5);font-size:15px;margin-bottom:10px;">Medium Platter</div>
+              <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;margin-top:4px;">
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>3 Large Prawns</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>6 Medium Prawns</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>Crawfish</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Chicken Sausages</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Sweet Butter Corn</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Potatoes</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Boiled Eggs</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- SMALL -->
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£25</span></div>
+              <div class="item-name">Glams Small Seafood Boil</div>
+              <div class="item-desc" style="color:rgba(255,248,238,.5);font-size:15px;margin-bottom:10px;">Small Platter</div>
+              <ul style="list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;margin-top:4px;">
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Large Prawns</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>4 Medium Prawns</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>Crawfish</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Boiled Eggs</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Sweet Butter Corn</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Sausages</li>
+                <li style="font-size:16px;color:rgba(255,248,238,.75);display:flex;gap:5px;"><span style="color:var(--gold);font-weight:700;">›</span>2 Potatoes</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- sides wrapper with top + bottom border -->
+        <div style="border-top:2px solid var(--border);border-bottom:2px solid var(--border);padding:32px 0;margin-top:8px;">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+            <span style="font-family:var(--font-head);font-size:20px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--cream);">Sides</span>
+            <span style="background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--black);font-family:var(--font-head);font-size:12px;font-weight:900;letter-spacing:2px;padding:4px 14px;border-radius:100px;">£5 Each</span>
+          </div>
+          <div class="menu-items-grid">
+
+            <div class="menu-item-card">
+              <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+              <div class="item-body">
+                <div class="item-name" style="font-size:26px;">Jollof Rice</div>
+                <div class="item-desc">Perfectly spiced Nigerian jollof rice.</div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+              <div class="item-body">
+                <div class="item-name" style="font-size:26px;">Special Fried Rice</div>
+                <div class="item-desc">Flavourful fried rice.</div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+              <div class="item-body">
+                <div class="item-name" style="font-size:26px;">Noodles</div>
+                <div class="item-desc">Stir-fried noodles.</div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+              <div class="item-body">
+                <div class="item-name" style="font-size:26px;">Plantain</div>
+                <div class="item-desc">Fried golden plantain.</div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+              <div class="item-body">
+                <div class="item-name" style="font-size:26px;">Yam Fries</div>
+                <div class="item-desc">Crispy yam fries.</div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;"></span></div>
+              <div class="item-body">
+                <div class="item-name" style="font-size:26px;">Potato Fries</div>
+                <div class="item-desc">Classic crispy potato fries.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TODAY'S SPECIAL -->
+      <div class="tab-panel active" id="tab-special">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍲</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Goat Meat Pepper Soup</div>
+              <div class="item-desc">Freshest meats simmered to perfection with natural spices.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍝</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£15.00</span></div>
+              <div class="item-name">Pasta Bolognese</div>
+              <div class="item-desc">Classic Italian recipe crafted with care — a story of flavours and freshness in every bite.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥘</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Ogbono Soup</div>
+              <div class="item-desc">Traditional West African soup made with ground ogbono seeds and vegetables.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🫕</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Porridge Yam</div>
+              <div class="item-desc">Comforting and traditional yam porridge, a hearty classic.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍌</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£5.00</span></div>
+              <div class="item-name">Air Fry Plantain</div>
+              <div class="item-desc">Crispy golden plantain, air-fried to perfection.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦞</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£75.00</span><span class="item-kcal">780 kcal</span><span class="item-popular">Popular</span></div>
+              <div class="item-name">Seafood Boil</div>
+              <div class="item-desc">Lobster, prawns, crab, squid, sausages, potatoes — the ultimate boil platter.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍓</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£12.99</span></div>
+              <div class="item-name">Strawberry Yogurt Parfait</div>
+              <div class="item-desc">Layered yogurt with fresh strawberries.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🌯</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.99</span></div>
+              <div class="item-name">Lamb Wrap (Shawarma)</div>
+              <div class="item-desc">Tender lamb wrapped in soft flatbread, seasoned with spices for a delightful taste.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍤</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£19.99</span><span class="item-kcal">670 kcal</span></div>
+              <div class="item-name">Special Fried Rice with Shrimps</div>
+              <div class="item-desc">Flavorful fried rice with a medley of fresh vegetables and savory spices.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£42.99</span><span class="item-kcal">1280 kcal</span></div>
+              <div class="item-name">Isi Ewu — Spicy Goat Head (Full)</div>
+              <div class="item-desc">Spicy goat head, seasoned for a bold flavour. A traditional delicacy for adventurous palates.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- NIGERIAN -->
+      <div class="tab-panel" id="tab-nigerian">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍚</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.00</span></div>
+              <div class="item-name">Ofada Rice &amp; Sauce</div>
+              <div class="item-desc">Local steam rice with local sauce made with locust bean, mixed meat and boiled egg.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥘</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.00</span></div>
+              <div class="item-name">Ofe Akwu with White Rice (Banga Stew)</div>
+              <div class="item-desc">Native palm kernel stew from south-east Nigeria. Tastes heavenly.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍌</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.00</span></div>
+              <div class="item-name">Gizzarddodo</div>
+              <div class="item-desc">Fried plantain mixed with spicy garnished gizzard — yummy!</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥩</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£35.00</span></div>
+              <div class="item-name">Ugba &amp; Pomo (Oilbean with Cowskin)</div>
+              <div class="item-desc">Local Nigerian dish from the south-eastern part of Nigeria.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍚</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£5.00</span></div>
+              <div class="item-name">Poundo</div>
+              <div class="item-desc">Soft, smooth yam flour swallow (poundo yam), a classic Nigerian staple.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🫓</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£5.00</span></div>
+              <div class="item-name">Garri (Eba)</div>
+              <div class="item-desc">Coarse cassava flour prepared into a smooth, soft dough. A traditional Nigerian staple.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🔥</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£14.99</span></div>
+              <div class="item-name">Beef Suya</div>
+              <div class="item-desc">Beef skewers coated in traditional suya spice rub, grilled for a smoky, savoury bite.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🔥</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£14.99</span></div>
+              <div class="item-name">Chicken Suya</div>
+              <div class="item-desc">Juicy chicken skewers seasoned with classic Nigerian suya spice blend.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🔥</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£16.99</span></div>
+              <div class="item-name">Toolzo Suya</div>
+              <div class="item-desc">Grilled meat skewers seasoned with a classic Nigerian suya spice blend.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🔥</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.99</span></div>
+              <div class="item-name">Liver Suya</div>
+              <div class="item-desc">Nigerian-style grilled liver coated in suya spices for a deep, savoury flavour.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£45.99</span></div>
+              <div class="item-name">Isi Ewu — Spicy Goat Head (Full)</div>
+              <div class="item-desc">Local spicy goat head, traditional Nigerian delicacy.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£25.99</span></div>
+              <div class="item-name">Isi Ewu — Spicy Goat Head (Half)</div>
+              <div class="item-desc">Half portion of spicy local goat head.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥗</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.99</span></div>
+              <div class="item-name">Abacha (African Salad)</div>
+              <div class="item-desc">Local salad made with cassava — a classic eastern Nigerian delicacy.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦞</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£45.99</span></div>
+              <div class="item-name">Seafood Boil — Glams Medium Platter</div>
+              <div class="item-desc">Our signature medium seafood boil platter.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.99</span></div>
+              <div class="item-name">Seafood Boil — Glams Small Platter</div>
+              <div class="item-desc">Yummy seafood boil small portion platter.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍲</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.99</span></div>
+              <div class="item-name">Goat Pepper Soup with Agidi (Eko)</div>
+              <div class="item-desc">Rich goat pepper soup served with smooth agidi (eko).</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥬</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£20.00</span></div>
+              <div class="item-name">Efo Riro</div>
+              <div class="item-desc">Traditional Nigerian spinach stew in a rich, savoury pepper base.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍟</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£5.00</span></div>
+              <div class="item-name">Fried Yam</div>
+              <div class="item-desc">Crisp-edged, soft-centred fried yam slices — simple, satisfying, and a Nigerian classic.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍌</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£5.00</span></div>
+              <div class="item-name">Fried Plantain</div>
+              <div class="item-desc">Sliced plantain fried until golden and tender, a simple Nigerian classic.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- GRILLS -->
+      <div class="tab-panel" id="tab-grills">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍗</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.99</span><span class="item-kcal">387 kcal</span></div>
+              <div class="item-name">Spicy Grilled Chicken (Full)</div>
+              <div class="item-desc">Spicy, grilled whole chicken with bold seasoning and juicy, charred skin.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£42.99</span><span class="item-kcal">1280 kcal</span></div>
+              <div class="item-name">Isi Ewu — Spicy Goat Head (Full)</div>
+              <div class="item-desc">Spicy goat head, seasoned for bold flavour. A traditional delicacy for adventurous palates.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£28.99</span><span class="item-kcal">640 kcal</span></div>
+              <div class="item-name">Isi Ewu — Spicy Goat Head (Half)</div>
+              <div class="item-desc">Spicy goat head dish, seasoned to perfection for a bold, authentic taste.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍠</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£32.00</span><span class="item-popular">Popular</span></div>
+              <div class="item-name">Bole — Roasted Yam &amp; Plantain with Peppered Fish</div>
+              <div class="item-desc">Roasted yam and plantain with roasted mackerel fish in local peppered sauce with oilbean (ugba).</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🔥</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£65.00</span></div>
+              <div class="item-name">Mix Protein Grills</div>
+              <div class="item-desc">Plantain, beef, prawns, corn, chicken — the ultimate mixed grill platter.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHINESE -->
+      <div class="tab-panel" id="tab-chinese">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥩</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£25.99</span><span class="item-kcal">1060 kcal</span></div>
+              <div class="item-name">Chinese Beef in Oyster Sauce with Steam Rice</div>
+              <div class="item-desc">Tender beef in a rich oyster sauce served with steamed rice.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍤</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£19.99</span><span class="item-kcal">670 kcal</span></div>
+              <div class="item-name">Special Fried Rice with Shrimps</div>
+              <div class="item-desc">Flavorful fried rice with a medley of fresh vegetables and savory spices.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍗</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£26.99</span><span class="item-kcal">899 kcal</span></div>
+              <div class="item-name">Chinese Shredded Chicken in Oyster Sauce</div>
+              <div class="item-desc">Tender shredded chicken in savoury oyster sauce — a delightful blend of flavours.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍚</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.99</span></div>
+              <div class="item-name">Steam Jasmine Rice with Chopped Chicken in Oyster Sauce</div>
+              <div class="item-desc">Fragrant jasmine rice topped with chopped chicken in oyster sauce.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ITALIAN -->
+      <div class="tab-panel" id="tab-italian">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍝</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Spaghetti Bolognese</div>
+              <div class="item-desc">Rich and hearty spaghetti with a savory bolognese sauce, perfect for a comforting meal.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥔</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£19.99</span><span class="item-kcal">830 kcal</span></div>
+              <div class="item-name">Mash Potatoes to Pair with Beef Steak</div>
+              <div class="item-desc">Creamy mashed potatoes, perfect to complement your beef steak.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£26.99</span><span class="item-kcal">1080 kcal</span></div>
+              <div class="item-name">Seafood Alfredo</div>
+              <div class="item-desc">Creamy pasta with succulent seafood, tossed in a rich Alfredo sauce.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SHAWARMA -->
+      <div class="tab-panel" id="tab-shawarma">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🌯</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£12.99</span></div>
+              <div class="item-name">Chicken Shawarma</div>
+              <div class="item-desc">Juicy chicken wrapped in a warm pita bread.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥙</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£12.99</span></div>
+              <div class="item-name">Beef Shawarma</div>
+              <div class="item-desc">Juicy beef wrapped in a warm pita bread.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦃</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£16.99</span><span class="item-kcal">550 kcal</span></div>
+              <div class="item-name">Turkey Wrap (Shawarma)</div>
+              <div class="item-desc">Tender turkey shawarma wrapped and seasoned to perfection.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🌯</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.99</span></div>
+              <div class="item-name">Lamb Wrap (Shawarma)</div>
+              <div class="item-desc">Tender lamb wrapped in soft flatbread, seasoned with spices for a delightful taste.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CHOWMEIN -->
+      <div class="tab-panel" id="tab-chowmein">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍜</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£15.00</span></div>
+              <div class="item-name">Chicken Chowmein</div>
+              <div class="item-desc">Smoked chicken with stir-fried noodles, scallion, fresh vegetables and house sauce.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍄</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£15.00</span></div>
+              <div class="item-name">Mushroom Chowmein</div>
+              <div class="item-desc">Tender mushrooms with stir-fried noodles and fresh vegetables in a savory, aromatic sauce.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- HEALTHY -->
+      <div class="tab-panel" id="tab-healthy">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🌾</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£19.99</span><span class="item-kcal">390 kcal</span></div>
+              <div class="item-name">Lamb Sauce with Steam Bulgur</div>
+              <div class="item-desc">Tender lamb in a rich sauce served with steam-cooked bulgur.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥩</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£38.00</span></div>
+              <div class="item-name">Mash with Beef Steak, Prawns &amp; Mix Veggies</div>
+              <div class="item-desc">Tender beef steak and prawns served with mixed vegetables and creamy mash.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍖</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£38.00</span></div>
+              <div class="item-name">Mash with Lamb Chops, Prawns &amp; Mix Veggies</div>
+              <div class="item-desc">Tender lamb chops and prawns served with a mix of vegetables and creamy mash.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CARIBBEAN -->
+      <div class="tab-panel" id="tab-caribbean">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍛</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£25.99</span></div>
+              <div class="item-name">Curry Chicken with Rice &amp; Beans</div>
+              <div class="item-desc">Caribbean-style curry chicken paired with rice and beans — a bold, comforting classic.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- FRUIT PARFAIT -->
+      <div class="tab-panel" id="tab-parfait">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍓</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£12.99</span></div>
+              <div class="item-name">Strawberry Yogurt Parfait</div>
+              <div class="item-desc">Layered yogurt with fresh strawberries.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🫐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£12.99</span></div>
+              <div class="item-name">Greek Yogurt Fruits Parfait</div>
+              <div class="item-desc">Layered Greek yogurt with fresh seasonal fruits.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍇</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£12.99</span></div>
+              <div class="item-name">Grape Fruit Parfait</div>
+              <div class="item-desc">Fresh layers of grape fruit — a sweet and refreshing yogurt treat.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- OTHERS -->
+      <div class="tab-panel" id="tab-others">
+        <div class="menu-items-grid">
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥗</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£15.00</span></div>
+              <div class="item-name">Grilled Chicken Quinoa Salad</div>
+              <div class="item-desc">Tender grilled chicken, fluffy quinoa, fresh greens, olives and cherry tomatoes. Healthy yet satisfying.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥘</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£20.00</span></div>
+              <div class="item-name">Oha Soup</div>
+              <div class="item-desc">Goat meat and dry fish, stockfish simmered in fragrant cocoyam with fresh leafy oha greens.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦐</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£30.00</span></div>
+              <div class="item-name">Fisherman Soup</div>
+              <div class="item-desc">Riverline south-south Nigeria soup filled with fresh fish, prawns, crabs, calamari, periwinkle.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥬</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£20.00</span><span class="item-popular">Popular</span></div>
+              <div class="item-name">Bitterleaf Soup</div>
+              <div class="item-desc">Ancient eastern Nigerian soup made with cocoyam, nuts, bitterleaf, dry fish, crayfish, beef and ox tail.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍚</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Smokey Party Jollof Rice</div>
+              <div class="item-desc">The yummy party jollof rice made with unique spices on smokey taste — delicious!</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥘</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Egusi Soup</div>
+              <div class="item-desc">Classic Nigerian favourite made with melon seeds, dry fish, stockfish and beef.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🍳</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Fried Rice</div>
+              <div class="item-desc">Colourful buttered fried rice mixed with fresh veggies and protein — delicious.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐟</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Fish Pepper Soup</div>
+              <div class="item-desc">Hot fish soup made with ancient African spices. Best for European weather — helps with hay-fever too!</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🦑</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£30.00</span></div>
+              <div class="item-name">Seafood Okra Soup</div>
+              <div class="item-desc">A mixture of seafoods from the riverline area of south-south Nigeria.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐟</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£32.00</span></div>
+              <div class="item-name">Grilled Catfish</div>
+              <div class="item-desc">Whole grilled catfish, charred and flavoursome.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🐠</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£35.00</span></div>
+              <div class="item-name">Grilled Tilapia Fish</div>
+              <div class="item-desc">Grilled or BBQ tilapia fish — whole, fresh, and beautifully charred.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥬</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£20.00</span></div>
+              <div class="item-name">Edi Kai Ikong (Vegetable Soup)</div>
+              <div class="item-desc">Green soup from south-south Nigeria — rebuilds your energy and increases blood level.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥦</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£20.00</span></div>
+              <div class="item-name">Afang Soup</div>
+              <div class="item-desc">Traditional Nigerian soup made with afang leaves and spices.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🫘</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£18.00</span></div>
+              <div class="item-name">Porridge Beans with Air-Fry Plantain</div>
+              <div class="item-desc">Hearty beans paired with crispy air-fried plantain.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🌯</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£10.00</span></div>
+              <div class="item-name">Cheesy Loaded Wraps</div>
+              <div class="item-desc">Juicy minced meat, crisp lettuce, fresh veggies, oozing cheese in a soft tortilla with special sauce.</div>
+            </div>
+          </div>
+
+          <div class="menu-item-card">
+            <div class="item-img"><div class="item-img-pattern"></div><span class="item-emoji" style="display:none;">🥬</span></div>
+            <div class="item-body">
+              <div class="item-top-row"><span class="item-price">£20.00</span></div>
+              <div class="item-name">Efo Eriro</div>
+              <div class="item-desc">Native Nigerian vegetable soup — rich, fresh and deeply satisfying.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ INFO ═══════════════════════════════════════════ -->
+  <section id="info">
+    <div class="container">
+      <div class="info-grid">
+
+        <div class="info-left">
+          <p class="section-label reveal">Find Us</p>
+          <h2 class="section-title reveal">Restaurant <span>Info</span></h2>
+          <div class="divider reveal"></div>
+
+          <div class="info-cards">
+
+            <div class="info-card reveal reveal-delay-2">
+              <div class="info-card-icon">📞</div>
+              <div class="info-card-content">
+                <div class="info-card-label">Phone</div>
+                <div class="info-card-value">
+                  <a href="tel:+447308290572">+44 7308 290572</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card reveal reveal-delay-3">
+              <div class="info-card-icon">🚚</div>
+              <div class="info-card-content">
+                <div class="info-card-label">Order Options</div>
+                <div class="info-card-value">
+                  WhatsApp · Uber Eats · Deliveroo<br>
+                  <span style="color:var(--muted); font-size:13px;">Direct orders via WhatsApp welcomed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-cta" style="margin-top:24px;">
+            <a href="https://www.instagram.com/glamsfreshuk/" target="_blank" rel="noopener"
+               class="ig-btn reveal reveal-delay-4">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+              </svg>
+              @glamsfreshuk
+            </a>
+            <a href="https://wa.me/447308290572?text=Hi%2C%20I'd%20like%20to%20place%20an%20order"
+               target="_blank" rel="noopener"
+               class="wa-btn reveal reveal-delay-5">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Order via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="info-right reveal reveal-delay-2">
+          <p class="section-label">Opening Times</p>
+          <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">
+            We're Open <span>Every Day</span>
+          </h2>
+          <div class="hours-card" style="margin-top:24px;">
+            <div class="hours-header">
+              <span style="font-size:22px;">🕐</span>
+              <h3>Opening Hours</h3>
+            </div>
+            <div class="hours-table">
+              <div class="hours-row" data-day="1">
+                <span class="hours-day">Monday</span>
+                <span class="hours-time"><span class="open-dot"></span>12:00pm – 10:00pm</span>
+              </div>
+              <div class="hours-row" data-day="2">
+                <span class="hours-day">Tuesday</span>
+                <span class="hours-time"><span class="open-dot"></span>12:00pm – 10:00pm</span>
+              </div>
+              <div class="hours-row" data-day="3">
+                <span class="hours-day">Wednesday</span>
+                <span class="hours-time"><span class="open-dot"></span>12:00pm – 10:00pm</span>
+              </div>
+              <div class="hours-row" data-day="4">
+                <span class="hours-day">Thursday</span>
+                <span class="hours-time"><span class="open-dot"></span>12:00pm – 10:00pm</span>
+              </div>
+              <div class="hours-row" data-day="5">
+                <span class="hours-day">Friday</span>
+                <span class="hours-time"><span class="open-dot"></span>12:00pm – 10:00pm</span>
+              </div>
+              <div class="hours-row" data-day="6">
+                <span class="hours-day">Saturday</span>
+                <span class="hours-time"><span class="open-dot"></span>12:00pm – 10:00pm</span>
+              </div>
+              <div class="hours-row" data-day="0">
+                <span class="hours-day">Sunday</span>
+                <span class="hours-time"><span class="open-dot"></span>2:00pm – 9:00pm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- map -->
+      <div class="reveal" style="margin-top:64px;">
+        <p class="section-label" style="margin-bottom:16px;">Find Us on the Map</p>
+
+        <div id="mapWrap" style="
+          border-radius:16px; overflow:hidden;
+          border:1px solid var(--border);
+          box-shadow:0 8px 40px rgba(0,0,0,.5);
+          position:relative;
+          height:220px;
+          transition:height .45s cubic-bezier(.4,0,.2,1);
+          cursor:pointer;
+        " onclick="expandMap(this)">
+
+          <!-- overlay shown when collapsed -->
+          <div id="mapOverlay" style="
+            position:absolute; inset:0; z-index:2;
+            background:rgba(8,8,8,.45);
+            display:flex; flex-direction:column;
+            align-items:center; justify-content:center;
+            gap:10px;
+            transition:opacity .3s;
+          ">
+            <div style="
+              width:52px; height:52px; border-radius:50%;
+              background:linear-gradient(135deg,var(--gold),var(--orange));
+              display:flex; align-items:center; justify-content:center;
+              box-shadow:0 4px 20px rgba(255,194,0,.4);
+            ">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+              </svg>
+            </div>
+            <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:2px;color:var(--cream);text-transform:uppercase;">Click to expand</span>
+          </div>
+
+          <iframe
+            id="mapFrame"
+            title="GlamsFresh UK Location"
+            src="https://www.google.com/maps?q=Brunslow+Cl,+Wolverhampton+WV10+6TF,+United+Kingdom&output=embed"
+            width="100%" height="100%"
+            style="display:block;border:none;pointer-events:none;transition:filter .3s;"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <p style="margin-top:12px; font-size:13px; color:var(--muted); font-family:var(--font-head); letter-spacing:1px;">
+          Brunslow Cl, Wolverhampton WV10 6TF &nbsp;·&nbsp;
+          <a href="https://www.google.com/maps/search/?api=1&query=Brunslow+Cl+Wolverhampton+WV10+6TF" target="_blank" rel="noopener" style="color:var(--gold);">Open in Google Maps ↗</a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════ -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <img src="logo.png" alt="GlamsFresh UK" class="logo-mark" style="background:transparent;padding:0;object-fit:contain;" />
+        <div class="logo-text">
+          <strong>GlamsFresh</strong>
+          <span>Restaurant · UK</span>
+        </div>
+      </div>
+
+      <div class="footer-tagline">
+        <span>🌿 Freshly Prepared</span>
+        <span class="pipe">|</span>
+        <span>🛵 Fast Delivery</span>
+        <span class="pipe">|</span>
+        <span>🔥 Authentic Flavours</span>
+      </div>
+
+      <p class="footer-copy">
+        &copy; 2026 GlamsFresh UK Restaurant · Brunslow Cl, Wolverhampton WV10 6TF ·
+        <a href="https://www.instagram.com/glamsfreshuk/" target="_blank" rel="noopener">@glamsfreshuk</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ember particles
+    (function() {
+      const container = document.getElementById('embers');
+      const colors = ['rgba(255,194,0,', 'rgba(240,120,0,', 'rgba(204,28,28,'];
+      for (let i = 0; i < 20; i++) {
+        const e = document.createElement('div');
+        e.className = 'ember';
+        const size = Math.random() * 4 + 2;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        e.style.cssText = `
+          width:${size}px; height:${size}px;
+          left:${Math.random() * 100}%;
+          bottom:${Math.random() * 30}%;
+          background:${color}${Math.random() * .5 + .3});
+          animation-duration:${Math.random() * 6 + 4}s;
+          animation-delay:${Math.random() * 5}s;
+          box-shadow: 0 0 ${size*2}px ${color}.8);
+        `;
+        container.appendChild(e);
+      }
+    })();
+
+    // scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // immediately show hero elements
+    document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+
+    // hamburger (mobile) — simple toggle
+    function toggleMenu(el) {
+      const links = document.querySelector('.nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      links.style.flexDirection = 'column';
+      links.style.position = 'absolute';
+      links.style.top = '96px';
+      links.style.left = '0'; links.style.right = '0';
+      links.style.background = 'rgba(8,8,8,.97)';
+      links.style.padding = '20px 24px';
+      links.style.gap = '20px';
+      links.style.borderBottom = '1px solid #2a2a2a';
+    }
+
+    // map expand/collapse
+    function expandMap(wrap) {
+      const overlay = document.getElementById('mapOverlay');
+      const frame   = document.getElementById('mapFrame');
+      const expanded = wrap.dataset.expanded === '1';
+      if (!expanded) {
+        wrap.style.height = '520px';
+        wrap.dataset.expanded = '1';
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        frame.style.pointerEvents = 'auto';
+        wrap.style.cursor = 'default';
+      } else {
+        wrap.style.height = '220px';
+        wrap.dataset.expanded = '0';
+        overlay.style.opacity = '1';
+        overlay.style.pointerEvents = 'auto';
+        frame.style.pointerEvents = 'none';
+        wrap.style.cursor = 'pointer';
+      }
+    }
+
+    // tab switching for full menu
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      btn.classList.add('active');
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      // scroll page to top of menu section
+      const section = document.getElementById('full-menu');
+      const navH = document.querySelector('nav').offsetHeight;
+      window.scrollTo({ top: section.offsetTop - navH, behavior: 'smooth' });
+    }
+
+    // highlight today's hours (UK/Wolverhampton timezone)
+    (function() {
+      const ukNow   = new Date(new Date().toLocaleString('en-GB', { timeZone: 'Europe/London' }));
+      const dayNum  = ukNow.getDay();   // 0=Sun,1=Mon…
+      const hour    = ukNow.getHours() + ukNow.getMinutes() / 60;
+      const isOpen  = dayNum === 0 ? (hour >= 14 && hour < 21) : (hour >= 12 && hour < 22);
+
+      const row = document.querySelector(`.hours-row[data-day="${dayNum}"]`);
+      if (row) {
+        row.classList.add('today');
+        const daySpan = row.querySelector('.hours-day');
+        daySpan.innerHTML += `<span class="today-badge">${isOpen ? 'Open Now' : 'Closed'}</span>`;
+        // swap dot colour
+        const dot = row.querySelector('.open-dot');
+        if (dot) dot.style.background = isOpen ? '#25d366' : '#cc1c1c';
+      }
+    })();
+
+    // live open/closed indicator in nav
+    (function() {
+      const now = new Date();
+      const day = now.getDay(); // 0=Sun
+      const hour = now.getHours() + now.getMinutes() / 60;
+      let open = false;
+      if (day === 0) { open = hour >= 14 && hour < 21; }
+      else           { open = hour >= 12 && hour < 22; }
+    })();
+  </script>
+</body>
+</html>
+
